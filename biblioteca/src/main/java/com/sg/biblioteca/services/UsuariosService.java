@@ -12,7 +12,7 @@ import com.sg.biblioteca.repositories.UsuariosRepository;
 public class UsuariosService {
 
 	 @Autowired
-	    private UsuariosRepository usuariosRepository;
+	 private UsuariosRepository usuariosRepository;
 	
 	 //Return list of usuarios
 	public List<Usuarios> ListUsuarios(){

@@ -54,7 +54,7 @@ public class Prestamos {
 	private int diasSolicitados;
 
 	@Column(name = "Monto Por Dia")
-	private double montoPorDia;
+	private int montoPorDia;
 
 	@OneToOne(mappedBy = "prestamo", cascade = CascadeType.ALL)
 	private Devoluciones devolucion;
@@ -67,8 +67,7 @@ public class Prestamos {
 		this.fechaDevolucionEstimada = calendar.getTime();
 	}
 
-	@Column(name = "Activo")
-	private boolean activo;
+
 
 	public Integer getId() {
 		return id;
@@ -126,11 +125,11 @@ public class Prestamos {
 		this.diasSolicitados = diasSolicitados;
 	}
 
-	public double getMontoPorDia() {
+	public int getMontoPorDia() {
 		return montoPorDia;
 	}
 
-	public void setMontoPorDia(double montoPorDia) {
+	public void setMontoPorDia(int montoPorDia) {
 		this.montoPorDia = montoPorDia;
 	}
 
@@ -142,12 +141,5 @@ public class Prestamos {
 		this.devolucion = devolucion;
 	}
 
-	public boolean isActivo() {
-		return activo;
-	}
-
-	public void setActivo(boolean activo) {
-		this.activo = activo;
-	}
 
 }

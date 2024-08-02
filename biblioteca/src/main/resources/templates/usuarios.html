@@ -300,14 +300,23 @@
 		      <td th:text="${usuario.nombre}">Nombre</td>
 		      <td th:text="${usuario.noCarnet}">Carnet</td>
 			  <td th:text="${usuario.cedula}">Cedula</td>
-
 			  <td th:text="${usuario.tipoPersona}">Tipo Persona</td>
-
 		      <td th:text="${usuario.activo ? 'Sí' : 'No'}">Activo</td>
+			  <td>
+			  					
+			  				</td> 
+
 		    </tr>
+			
 		  </tbody>
 		</table>
 
+		<label for="usuario" class="form-label">Usuario</label>
+								  					<select class="form-control">
+								  					    <option value="" selected disabled>Selecciona un usuario</option>
+								  					    <option th:each="usuario:${usuarios}" th:value="${usuario.id}" th:text="${usuario.nombre}">Usuario</option>
+								  					    
+								  					</select>
 
 
 

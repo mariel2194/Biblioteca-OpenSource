@@ -17,7 +17,7 @@ public class IdiomasController {
 	private IdiomasService idiomasService;
 
 	@GetMapping("/idiomas")
-	public String getAutores(Model model) {
+	public String getIdiomas(Model model) {
 		List<Idiomas> idiomasList = idiomasService.ListIdiomas();
 		model.addAttribute("idiomas", idiomasList);
 		return "idiomas";

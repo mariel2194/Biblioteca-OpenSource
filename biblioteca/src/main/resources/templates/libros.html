@@ -256,10 +256,10 @@
 	<main id="main" class="main">
 
 		<div class="pagetitle">
-			<h1>Autores</h1>
+			<h1>Libros</h1>
 			<nav>
 				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+					<li class="breadcrumb-item"><a href="/index">Inicio</a></li>
 				</ol>
 			</nav>
 		</div><!-- End Page Title -->
@@ -273,6 +273,7 @@
 					<th>Año de Publicación</th>
 					<th>ISBN</th>
 					<th>Edicion</th>
+					<th>Cantidad</th>
 					<th>Idioma</th>
 					<th>Signatura Tipografica</th>
 					<th>Ciencia-Genero</th>
@@ -289,18 +290,76 @@
 					<td th:text="${libro.anioPublicacion}">Año de Publicación</td>
 					<td th:text="${libro.ISBN}">ISBN</td>
 					<td th:text="${libro.edicion}">Edición</td>
+					<td th:text="${libro.cantidad}">Cantidad</td>
 					<td th:text="${libro.idioma.descripcion}">Idioma</td>
 					<td th:text="${libro.signaturaTipografica}">Signatura Tipográfica</td>
 					<td th:text="${libro.ciencia.descripcion}">Ciencia-Genero</td>
 					<td th:text="${libro.activo ? 'Sí' : 'No'}">Activo</td>
+					<td>
+						<button type="button" class="btn btn-primary" data-bs-toggle="modal"
+							data-bs-target="#prestamoModal" th:data-libro-id="${libro.id}"
+							th:text="' Solicitar Préstamo ID Libro:' + ${libro.id}"></button>
+
+					</td>
 				</tr>
+
 			</tbody>
 		</table>
 
 
 
-
 	</main><!-- End #main -->
+
+	<div class="modal fade" id="prestamoModal" tabindex="-1" aria-labelledby="prestamoModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="prestamoModalLabel">Nuevo Préstamo</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<form id="prestamoForm" th:action="@{/prestamos}" method="post">
+						<label for="libro" class="form-label">Libro</label>
+						<input type="text" id="libroId" name="libroId">
+						<div class="mb-3">
+							<label for="fechaPrestamo" class="form-label">Fecha del Préstamo</label>
+							<input type="date" class="form-control" id="fechaPrestamo" name="fechaPrestamo" required>
+						</div>
+						<div class="mb-3">
+							<label for="usuario" class="form-label">Usuario</label>
+							<select class="form-control" id="usuario" name="usuario" required>
+								<option value="" selected disabled>Selecciona un usuario</option>
+								<th:block th:each="usuario : ${usuarios}">
+									<option th:value="${usuario.id}" th:text="${usuario.nombre}">Usuario</option>
+								</th:block>
+							</select>
+						</div>
+						<div class="mb-3">
+							<label for="diasSolicitados" class="form-label">Días Solicitados</label>
+							<input type="number" class="form-control" id="diasSolicitados" name="diasSolicitados"
+								required>
+						</div>
+						<div class="mb-3">
+							<label for="montoPorDia" class="form-label">Monto por Día</label>
+							<input type="number" class="form-control" id="montoPorDia" name="montoPorDia" required>
+						</div>
+						<div class="mb-3">
+							<label for="empleado" class="form-label">Empleado</label>
+							<select class="form-control" id="empleado" name="empleadoId" required>
+								<option value="" selected disabled>Selecciona un usuario</option>
+								<th:block th:each="empleado : ${empleados}">
+									<option th:value="${empleado.id}" th:text="${empleado.nombre}">Empleado</option>
+								</th:block>
+							</select>
+						</div>
+
+						<button type="submit" id="savePrestamoButton" class="btn btn-primary">Guardar</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
 
 	<!-- ======= Footer ======= -->
 	<footer id="footer" class="footer">
@@ -351,6 +410,41 @@
 				]
 			});
 		});
+		document.addEventListener('DOMContentLoaded', function() {
+		       var prestamoModal = document.getElementById('prestamoModal');
+		       prestamoModal.addEventListener('show.bs.modal', function(event) {
+		           var button = event.relatedTarget; // Botón que abrió el modal
+		           var libroId = button.getAttribute('data-libro-id'); // Extrae el ID del libro del atributo personalizado
+		           var libroIdInput = document.getElementById('libroId'); // Campo oculto en el formulario
+		           libroIdInput.value = libroId; // Asigna el ID del libro al campo oculto
+		       });
+		   });
+
+
+
+
+
+
+
+
+		/*document.addEventListener('DOMContentLoaded', function () {
+			const usuarioSelect = document.getElementById('usuario');
+
+			// Fetch usuarios from API
+			fetch('/api/usuarios')
+				.then(response => response.json())
+				.then(data => {
+					data.forEach(usuario => {
+						const option = document.createElement('option');
+						option.value = usuario.id;
+						option.textContent = usuario.nombre;
+						usuarioSelect.appendChild(option);
+					});
+				})
+				.catch(error => console.error('Error fetching usuarios:', error));
+		});*/
+
+
 	</script>
 
 </body>
