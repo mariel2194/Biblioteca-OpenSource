@@ -1,7 +1,9 @@
 package com.sg.biblioteca.controllers;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -39,10 +41,17 @@ public class PrestamosController {
 	public String getPrestamos(Model model) {
 		List<Prestamos> prestamosList = prestamosService.ListPrestamos();
         List<Usuarios> usuariosList = usuariosService.ListUsuarios();
-        List<Libros> librosList = librosService.ListLibros();
+        List<Libros> librosList = librosService.ListLibros();     
+		
+		Map<Integer, Boolean> devolucionesExistentes = new HashMap<>();
+        for (Prestamos prestamo : prestamosList) {
+            devolucionesExistentes.put(prestamo.getId(), prestamosService.tieneDevolucion(prestamo.getId()));
+        }
+        model.addAttribute("devolucionesExistentes", devolucionesExistentes);
         model.addAttribute("libros", librosList);
         model.addAttribute("usuarios", usuariosList);
 		model.addAttribute("prestamos", prestamosList);
+        
 		return "prestamos";
 	}
 	

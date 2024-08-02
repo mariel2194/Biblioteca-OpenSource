@@ -12,7 +12,7 @@ import com.sg.biblioteca.models.Usuarios;
 import com.sg.biblioteca.models.Empleados;
 
 import com.sg.biblioteca.models.Libros;
-
+import com.sg.biblioteca.repositories.DevolucionesRepository;
 import com.sg.biblioteca.repositories.EmpleadosRepository;
 import com.sg.biblioteca.repositories.LibrosRepository;
 import com.sg.biblioteca.repositories.PrestamosRepository;
@@ -30,6 +30,10 @@ public class PrestamosService {
 	@Autowired
 	private LibrosRepository librosRepository;
 
+
+	@Autowired
+	private DevolucionesRepository devolucionesRepository;
+	
 	@Autowired
 	private EmpleadosRepository empleadosRepository;
 
@@ -37,6 +41,10 @@ public class PrestamosService {
 	public List<Prestamos> ListPrestamos() {
 		return prestamosRepository.findAll();
 	}
+	
+	public boolean tieneDevolucion(Integer prestamoId) {
+        return devolucionesRepository.existsByPrestamoId(prestamoId);
+    }
 
 	public Prestamos createPrestamo(Date fechaPrestamo, Integer usuarioId, Integer libroId, Integer diasSolicitados,
 	        Integer montoPorDia, Integer empleadoId) {

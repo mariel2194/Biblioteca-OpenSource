@@ -35,17 +35,13 @@ public class Devoluciones {
 	
     
 	    @OneToOne
-	    @JoinColumn(name = "prestamoId")
-	    private Prestamos prestamo;
-	
+	    private Prestamos prestamo;	
 
 	    @ManyToOne
 	    private Usuarios usuario;
-
 	    
 	    @Column(name = "Fecha Devolucion Actual")
-	    private Date fechaDevolucionActual;
-	    
+	    private Date fechaDevolucionActual;	    
 	    
 	    @Column(name = "Atraso")
 	    private boolean atraso;

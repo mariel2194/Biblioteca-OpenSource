@@ -235,19 +235,6 @@
 				</a>
 			</li><!-- End Login Page Nav -->
 
-			<li class="nav-item">
-				<a class="nav-link collapsed" href="pages-error-404.html">
-					<i class="bi bi-dash-circle"></i>
-					<span>Error 404</span>
-				</a>
-			</li><!-- End Error 404 Page Nav -->
-
-			<li class="nav-item">
-				<a class="nav-link collapsed" href="pages-blank.html">
-					<i class="bi bi-file-earmark"></i>
-					<span>Blank</span>
-				</a>
-			</li><!-- End Blank Page Nav -->
 
 		</ul>
 
@@ -256,7 +243,7 @@
 	<main id="main" class="main">
 
 		<div class="pagetitle">
-			<h1>Autores</h1>
+			<h1>Préstamos</h1>
 			<nav>
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
@@ -288,6 +275,15 @@
 					<td th:text="${prestamo.fechaDevolucionEstimada}">Fecha Devolucion Estimada</td>
 					<td th:text="${prestamo.empleado.nombre}">Empleado</td>
 
+					<td>
+					               <button type="button" class="btn btn-primary" 
+					                       th:if="${!devolucionesExistentes[prestamo.id]}" 
+					                       data-bs-toggle="modal" 
+					                       data-bs-target="#devolucionModal" 
+					                       th:data-prestamo-id="${prestamo.id}" 
+					                       th:text="Devolución"></button>
+					           </td>
+
 
 				</tr>
 			</tbody>
@@ -298,18 +294,39 @@
 
 	</main><!-- End #main -->
 
+	<div class="modal fade" id="devolucionModal" tabindex="-1" aria-labelledby="devolucionModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="devolucionModalLabel">Nueva Devolución</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<form id="devolucionForm" th:action="@{/devoluciones}" method="post">
+						<label for="prestamo" class="form-label">ID</label>
+						<input type="text" id="prestamoId" name="prestamoId">
+						
+						<div class="mb-3">
+							<label for="fechaDevolucionActual" class="form-label">Fecha de Devolución Actual</label>
+							<input type="date" class="form-control" id="fechaDevolucionActual"
+								name="fechaDevolucionActual" required>
+						</div>
+
+						
+
+
+
+						<button type="submit" id="saveDevolucionButton" class="btn btn-primary">Guardar</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<!-- ======= Footer ======= -->
 	<footer id="footer" class="footer">
-		<div class="copyright">
-			&copy; Copyright <strong><span>NiceAdmin</span></strong>. All Rights Reserved
-		</div>
-		<div class="credits">
-			<!-- All the links in the footer should remain intact. -->
-			<!-- You can delete the links only if you purchased the pro version. -->
-			<!-- Licensing information: https://bootstrapmade.com/license/ -->
-			<!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-			Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-		</div>
+
 	</footer><!-- End Footer -->
 
 	<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
@@ -347,6 +364,41 @@
 				]
 			});
 		});
+
+		document.addEventListener('DOMContentLoaded', function() {
+		    var devolucionModal = document.getElementById('devolucionModal');
+		    devolucionModal.addEventListener('show.bs.modal', function(event) {
+		        var button = event.relatedTarget;
+		        var prestamoId = button.getAttribute('data-prestamo-id');
+		        var prestamoIdInput = document.getElementById('prestamoId');
+		        prestamoIdInput.value = prestamoId;
+		    });
+
+		    $('#devolucionForm').on('submit', function(e) {
+		        e.preventDefault();
+
+		        var formData = $(this).serialize();
+
+		        $.ajax({
+		            type: 'POST',
+		            url: $(this).attr('action'),
+		            data: formData,
+		            success: function(response) {
+		                // Actualiza el grid de préstamos
+		                $('#prestamosGrid').load('/prestamos #prestamosGrid');
+		                // Cierra el modal
+		                $('#devolucionModal').modal('hide');
+		            },
+		            error: function(error) {
+		                console.error('Error al guardar la devolución:', error);
+		            }
+		        });
+		    });
+		});
+
+
+
+
 	</script>
 
 </body>

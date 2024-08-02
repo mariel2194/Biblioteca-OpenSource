@@ -8,4 +8,5 @@ import com.sg.biblioteca.models.Devoluciones;
 @Repository
 public interface DevolucionesRepository extends JpaRepository<Devoluciones, Integer> {
 
+	boolean existsByPrestamoId(Integer prestamoId);
 }
