@@ -6,12 +6,17 @@
 	<meta content="width=device-width, initial-scale=1.0" name="viewport">
 
 	<title>Gestion de Autores</title>
+
+	<!-- Incluye jQuery -->
 	<meta content="" name="description">
 	<meta content="" name="keywords">
 
 	<!-- Favicons -->
 	<link href="assets/img/favicon.png" rel="icon">
 	<link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 	<!-- Google Fonts -->
 	<link href="https://fonts.gstatic.com" rel="preconnect">
@@ -45,16 +50,12 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
 
 
-	<!-- =======================================================
-  * Template Name: NiceAdmin
-  * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
-  * Updated: Apr 20 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body>
+
+	<div th:if="${errorMessage}" class="alert alert-danger" th:text="${errorMessage}"></div>
+
 
 	<!-- ======= Header ======= -->
 	<header id="header" class="header fixed-top d-flex align-items-center">
@@ -62,7 +63,7 @@
 		<div class="d-flex align-items-center justify-content-between">
 			<a href="index.html" class="logo d-flex align-items-center">
 				<img src="assets/img/logo.png" alt="">
-				<span class="d-none d-lg-block">Biblioteca</span>
+				<span class="d-none d-lg-block">Biblioteca Mil Libros</span>
 			</a>
 			<i class="bi bi-list toggle-sidebar-btn"></i>
 		</div><!-- End Logo -->
@@ -159,47 +160,55 @@
 					<i class="bi bi-grid"></i>
 					<span>Biblioteca</span>
 				</a>
-			</li><!-- End Dashboard Nav -->
 
 			<li class="nav-item">
 				<a class="nav-link collapsed" data-bs-target="#components-nav" href="/autores">
-					<i class="bi bi-menu-button-wide"></i><span>Autores</span><i class="bi bi-chevron-down ms-auto"></i>
+					<i class="bi bi-menu-button-wide"></i><span>Autores</span>
 				</a>
 
-			</li><!-- End Components Nav -->
 
 			<li class="nav-item">
 				<a class="nav-link collapsed" data-bs-target="#forms-nav" href="/libros">
-					<i class="bi bi-journal-text"></i><span>Libros</span><i class="bi bi-chevron-down ms-auto"></i>
+					<i class="bi bi-journal-text"></i><span>Libros</span>
+				</a>
+			<li class="nav-item">
+				<a class="nav-link collapsed" data-bs-target="#forms-nav" href="/prestamos">
+					<i class="bi bi-journal-text"></i><span>Prestamos</span>
+				</a>
+
+			</li><!-- End Forms Nav -->
+			<li class="nav-item">
+				<a class="nav-link collapsed" data-bs-target="#forms-nav" href="/devoluciones">
+					<i class="bi bi-journal-text"></i><span>Devoluciones</span>
 				</a>
 
 			</li><!-- End Forms Nav -->
 
+
 			<li class="nav-item">
 				<a class="nav-link collapsed" data-bs-target="#tables-nav" href="/editoras">
-					<i class="bi bi-layout-text-window-reverse"></i><span>Editoras</span><i
-						class="bi bi-chevron-down ms-auto"></i>
+					<i class="bi bi-layout-text-window-reverse"></i><span>Editoras</span>
 				</a>
 
 			</li><!-- End Tables Nav -->
 
 			<li class="nav-item">
 				<a class="nav-link collapsed" data-bs-target="#charts-nav" href="/idiomas">
-					<i class="bi bi-bar-chart"></i><span>Idiomas</span><i class="bi bi-chevron-down ms-auto"></i>
+					<i class="bi bi-bar-chart"></i><span>Idiomas</span>
 				</a>
 
 			</li><!-- End Charts Nav -->
 
 			<li class="nav-item">
 				<a class="nav-link collapsed" data-bs-target="#icons-nav" href="/ciencias">
-					<i class="bi bi-gem"></i><span>Ciencias</span><i class="bi bi-chevron-down ms-auto"></i>
+					<i class="bi bi-gem"></i><span>Ciencias</span>
 				</a>
 
 			</li><!-- End Icons Nav -->
 
 			<li class="nav-item">
 				<a class="nav-link collapsed" data-bs-target="#icons-nav" href="/tipoBibliografia">
-					<i class="bi bi-gem"></i><span>Tipo Bibliografia</span><i class="bi bi-chevron-down ms-auto"></i>
+					<i class="bi bi-gem"></i><span>Tipo Bibliografia</span>
 				</a>
 
 			</li><!-- End Icons Nav -->
@@ -209,7 +218,7 @@
 			<li class="nav-item">
 				<a class="nav-link collapsed" href="/usuarios">
 					<i class="bi bi-person"></i>
-					<span>Estudiantes</span>
+					<span>Usuarios</span>
 				</a>
 			</li><!-- End Profile Page Nav -->
 
@@ -221,33 +230,7 @@
 			</li><!-- End F.A.Q Page Nav -->
 
 
-			<li class="nav-item">
-				<a class="nav-link collapsed" href="pages-register.html">
-					<i class="bi bi-card-list"></i>
-					<span>Registor</span>
-				</a>
-			</li><!-- End Register Page Nav -->
 
-			<li class="nav-item">
-				<a class="nav-link collapsed" href="/userlogin">
-					<i class="bi bi-box-arrow-in-right"></i>
-					<span>Login</span>
-				</a>
-			</li><!-- End Login Page Nav -->
-
-			<li class="nav-item">
-				<a class="nav-link collapsed" href="pages-error-404.html">
-					<i class="bi bi-dash-circle"></i>
-					<span>Error 404</span>
-				</a>
-			</li><!-- End Error 404 Page Nav -->
-
-			<li class="nav-item">
-				<a class="nav-link collapsed" href="pages-blank.html">
-					<i class="bi bi-file-earmark"></i>
-					<span>Blank</span>
-				</a>
-			</li><!-- End Blank Page Nav -->
 
 		</ul>
 
@@ -264,80 +247,218 @@
 			</nav>
 		</div><!-- End Page Title -->
 
-		<table class="table table-hover datatable">
-			<thead>
-				<tr>
-					<th>Nombre</th>
-					<th>Pais de Origen</th>
-					<th>Activo</th>
-					<th>Idioma</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr th:each="autor:${autores}">
-					<td th:text="${autor.nombre}">Nombre</td>
-					<td th:text="${autor.paisOrigen}">Pais de Origen</td>
-					<td th:text="${autor.activo ? 'Sí' : 'No'}">Activo</td>
-					<td th:text="${autor.idioma.descripcion}"></td>
-				</tr>
-			</tbody>
-		</table>
+		<div class="card">
+			<div class="card-body">
+				<button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#crearAutoresModal">
+					Agregar Autor
+				</button>
+				<table class="table table-hover datatable">
+					<thead>
+						<tr>
+							<th>Nombre</th>
+							<th>Pais de Origen</th>
+							<th>Activo</th>
+							<th>Idioma</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="autor:${autores}">
+							<td th:text="${autor.nombre}">Nombre</td>
+							<td th:text="${autor.paisOrigen}">Pais de Origen</td>
+							<td th:text="${autor.activo ? 'Sí' : 'No'}">Activo</td>
+							<td th:text="${autor.idioma.descripcion}">Idioma</td>
+
+							<td>
+								<button type="button" class="btn btn-info editButton" th:data-id="${autor.id}" data-bs-toggle="modal" data-bs-target="#editAutoresModal">
+								                   <i class="bi bi-pencil-square"></i>
+								               </button>
+								               <form th:action="@{/autores/delete/{id}(id=${autor.id})}" method="post" style="display:inline;">
+								                   <button type="submit" class="btn btn-danger">
+								                       <i class="bi bi-trash"></i>
+								                   </button>
+								</form>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
 
 
 
 
 	</main><!-- End #main -->
 
+	<!-- Modal para Editar Autores -->
+	
+	
+	
+	<div class="modal fade" id="editAutoresModal" tabindex="-1" aria-labelledby="editAutoresLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="editAutoresLabel">Editar Autor</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<form id="autoresForm" th:action="@{/autores/update}" method="post" th:object="${autor}">
+						<input type="hidden" id="autorId" name="id">
+						<div class="form-group">
+							<label for="nombre">Nombre:</label>
+							<input type="text" class="form-control" id="nombre" name="nombre"
+								th:value="${autor?.nombre}">
+						</div>
+						<div class="form-group">
+							<label for="paisOrigen">País de Origen:</label>
+							<input type="text" class="form-control" id="paisOrigen" name="paisOrigen">
+						</div>
+						<div class="form-group">
+							<label for="activo">Activo:</label>
+							<input type="checkbox" class="form-check-input" id="activo" name="activo">
+						</div>
+						<div class="form-group">
+							<label for="idioma">Idioma:</label>
+							<select class="form-control" id="idioma" name="idioma.id">
+								<option th:each="idioma : ${idiomas}" th:value="${idioma.id}"
+									th:text="${idioma.descripcion}"></option>
+							</select>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+							<button type="submit" class="btn btn-primary">Guardar cambios</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<!-- Modal para Crear Autor -->
+	<div class="modal fade" id="crearAutoresModal" tabindex="-1" aria-labelledby="crearAutoresLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="crearAutoresLabel">Crear Autor</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<form th:action="@{/autores/addnew}" method="post" th:object="${autor}">
+						<div class="form-group">
+							<label for="nombre">Nombre:</label>
+							<input type="text" class="form-control" id="nombre" name="nombre"
+								th:value="${autor?.nombre}">
+						</div>
+						<div class="form-group">
+							<label for="paisOrigen">País de Origen:</label>
+							<input type="text" class="form-control" id="paisOrigen" name="paisOrigen"
+								th:value="${autor?.paisOrigen}">
+						</div>
+						<div class="form-group">
+							<label for="activo">Activo:</label>
+							<input type="checkbox" class="form-check-input" id="activo" name="activo"
+								th:checked="${autor?.activo}">
+						</div>
+						<div class="form-group">
+							<label for="idioma">Idioma:</label>
+							<select class="form-control" id="idioma" name="idioma.id">
+								<option th:each="idioma : ${idiomas}" th:value="${idioma.id}"
+									th:text="${idioma.descripcion}"></option>
+							</select>
+						</div>
+						<button type="submit" class="btn btn-primary">Guardar</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
 	<!-- ======= Footer ======= -->
-	<footer id="footer" class="footer">
-		<div class="copyright">
-			&copy; Copyright <strong><span>NiceAdmin</span></strong>. All Rights Reserved
-		</div>
-		<div class="credits">
-			<!-- All the links in the footer should remain intact. -->
-			<!-- You can delete the links only if you purchased the pro version. -->
-			<!-- Licensing information: https://bootstrapmade.com/license/ -->
-			<!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-			Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-		</div>
-	</footer><!-- End Footer -->
+	< </footer><!-- End Footer -->
 
-	<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-			class="bi bi-arrow-up-short"></i></a>
+		<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+				class="bi bi-arrow-up-short"></i></a>
 
-	<!-- Vendor JS Files -->
-	<script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
-	<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-	<script src="assets/vendor/chart.js/chart.umd.js"></script>
-	<script src="assets/vendor/echarts/echarts.min.js"></script>
-	<script src="assets/vendor/quill/quill.js"></script>
-	<script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
-	<script src="assets/vendor/tinymce/tinymce.min.js"></script>
-	<script src="assets/vendor/php-email-form/validate.js"></script>
 
-	<!-- Template Main JS File -->
-	<script>
-		$(document).ready(function () {
-			$('.datatable').DataTable({
-				dom: 'Bfrtip',
-				buttons: [
-					{
-						extend: 'excelHtml5',
-						text: 'Exportar a Excel',
-						title: 'Reporte de Autores'
-					},
-					{
-						extend: 'pdfHtml5',
-						text: 'Exportar a PDF',
-						title: 'Reporte de Autores',
-						orientation: 'landscape',
-						pageSize: 'A4'
-					},
-					'print'
-				]
+		<!-- Template Main JS File -->
+		<script src="assets/js/main.js"></script>
+		<!-- Template Main JS File -->
+		<script src="assets/js/pages.js"></script>
+
+		<script>
+
+			$(document).ready(function () {
+				$('.datatable').DataTable({
+					dom: 'Bfrtip',
+					buttons: [
+						{
+							extend: 'excelHtml5',
+							text: 'Exportar a Excel',
+							title: 'Reporte de Autores'
+						},
+						{
+							extend: 'pdfHtml5',
+							text: 'Exportar a PDF',
+							title: 'Reporte de Autores',
+							orientation: 'landscape',
+							pageSize: 'A4'
+						},
+						'print'
+					]
+				});
 			});
-		});
-	</script>
+
+
+
+			document.addEventListener('DOMContentLoaded', function () {
+				var editAutoresModal = document.getElementById('editAutoresModal');
+				if (editAutoresModal) {
+					editAutoresModal.addEventListener('show.bs.modal', function (event) {
+						var button = event.relatedTarget; // Button that triggered the modal
+						var autorId = button.getAttribute('data-id'); // Extract the ID from data-id attribute
+
+						// Set the autorId in the hidden input field
+						document.getElementById('autorId').value = autorId;
+
+						// Optional: Fetch additional details if needed
+					});
+				}
+			});
+			
+			document.addEventListener('DOMContentLoaded', function() {
+			    // Manejar el clic en el botón de editar
+			    document.querySelectorAll('.editButton').forEach(button => {
+			        button.addEventListener('click', function() {
+			            // Obtener el ID del autor
+			            const autorId = this.getAttribute('data-id');
+
+			            // Encontrar la fila correspondiente en la tabla
+			            const row = this.closest('tr');
+			            const nombre = row.children[0].innerText;
+			            const paisOrigen = row.children[1].innerText;
+			            const activo = row.children[2].innerText === 'Sí'; // Convertir el texto en booleano
+			            const idioma = row.children[3].innerText;
+
+			            // Rellenar el formulario del modal
+			            document.getElementById('autorId').value = autorId;
+			            document.getElementById('nombre').value = nombre;
+			            document.getElementById('paisOrigen').value = paisOrigen;
+			            document.getElementById('activo').checked = activo;
+
+			            // Aquí se puede añadir lógica para seleccionar el idioma correcto si es necesario
+			            // Si estás utilizando IDs de idiomas, puedes configurar esto de manera adecuada.
+			        });
+			    });
+			});
+			
+		
+
+
+		</script>
 
 </body>
 

@@ -31,18 +31,18 @@
 	<!-- Template Main CSS File -->
 	<link href="assets/css/style.css" rel="stylesheet">
 	<!-- DataTables CSS -->
-	    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
-	    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.7.1/css/buttons.dataTables.min.css">
-	    <!-- jQuery -->
-	    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	    <!-- DataTables JS -->
-	    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-	    <script src="https://cdn.datatables.net/buttons/1.7.1/js/dataTables.buttons.min.js"></script>
-	    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-	    <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.html5.min.js"></script>
-	    <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.print.min.js"></script>
-	    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-	    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+	<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.7.1/css/buttons.dataTables.min.css">
+	<!-- jQuery -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<!-- DataTables JS -->
+	<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/buttons/1.7.1/js/dataTables.buttons.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+	<script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.html5.min.js"></script>
+	<script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.print.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
 
 
 	<!-- =======================================================
@@ -159,56 +159,65 @@
 					<i class="bi bi-grid"></i>
 					<span>Biblioteca</span>
 				</a>
-			</li><!-- End Dashboard Nav -->
 
 			<li class="nav-item">
-				<a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-					<i class="bi bi-menu-button-wide"></i><span>Autores</span><i class="bi bi-chevron-down ms-auto"></i>
+				<a class="nav-link collapsed" data-bs-target="#components-nav" href="/autores">
+					<i class="bi bi-menu-button-wide"></i><span>Autores</span>
 				</a>
 
-			</li><!-- End Components Nav -->
 
 			<li class="nav-item">
-				<a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-					<i class="bi bi-journal-text"></i><span>Libros</span><i class="bi bi-chevron-down ms-auto"></i>
+				<a class="nav-link collapsed" data-bs-target="#forms-nav" href="/libros">
+					<i class="bi bi-journal-text"></i><span>Libros</span>
+				</a>
+			<li class="nav-item">
+				<a class="nav-link collapsed" data-bs-target="#forms-nav" href="/prestamos">
+					<i class="bi bi-journal-text"></i><span>Prestamos</span>
+				</a>
+
+			</li><!-- End Forms Nav -->
+			<li class="nav-item">
+				<a class="nav-link collapsed" data-bs-target="#forms-nav" href="/devoluciones">
+					<i class="bi bi-journal-text"></i><span>Devoluciones</span>
 				</a>
 
 			</li><!-- End Forms Nav -->
 
+
 			<li class="nav-item">
-				<a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="editoras">
-					<i class="bi bi-layout-text-window-reverse"></i><span>Editoras</span><i
-						class="bi bi-chevron-down ms-auto"></i>
+				<a class="nav-link collapsed" data-bs-target="#tables-nav" href="/editoras">
+					<i class="bi bi-layout-text-window-reverse"></i><span>Editoras</span>
 				</a>
-				
+
 			</li><!-- End Tables Nav -->
 
 			<li class="nav-item">
-				<a class="nav-link collapsed" data-bs-target="#charts-nav"href="/idiomas">
-					<i class="bi bi-bar-chart"></i><span>Idiomas</span><i class="bi bi-chevron-down ms-auto"></i>
+				<a class="nav-link collapsed" data-bs-target="#charts-nav" href="/idiomas">
+					<i class="bi bi-bar-chart"></i><span>Idiomas</span>
 				</a>
-				
+
 			</li><!-- End Charts Nav -->
 
 			<li class="nav-item">
 				<a class="nav-link collapsed" data-bs-target="#icons-nav" href="/ciencias">
-					<i class="bi bi-gem"></i><span>Ciencias</span><i class="bi bi-chevron-down ms-auto"></i>
+					<i class="bi bi-gem"></i><span>Ciencias</span>
 				</a>
 
 			</li><!-- End Icons Nav -->
-			<li class="nav-item">
-										<a class="nav-link collapsed" data-bs-target="#icons-nav" href="/tipoBibliografia">
-											<i class="bi bi-gem"></i><span>Tipo Bibliografia</span><i class="bi bi-chevron-down ms-auto"></i>
-										</a>
 
-									</li>
+			<li class="nav-item">
+				<a class="nav-link collapsed" data-bs-target="#icons-nav" href="/tipoBibliografia">
+					<i class="bi bi-gem"></i><span>Tipo Bibliografia</span>
+				</a>
+
+			</li><!-- End Icons Nav -->
 
 			<li class="nav-heading">Usuarios</li>
 
 			<li class="nav-item">
 				<a class="nav-link collapsed" href="/usuarios">
 					<i class="bi bi-person"></i>
-					<span>Estudiantes</span>
+					<span>Usuarios</span>
 				</a>
 			</li><!-- End Profile Page Nav -->
 
@@ -220,33 +229,7 @@
 			</li><!-- End F.A.Q Page Nav -->
 
 
-			<li class="nav-item">
-				<a class="nav-link collapsed" href="pages-register.html">
-					<i class="bi bi-card-list"></i>
-					<span>Registor</span>
-				</a>
-			</li><!-- End Register Page Nav -->
 
-			<li class="nav-item">
-				<a class="nav-link collapsed" href="/userlogin">
-					<i class="bi bi-box-arrow-in-right"></i>
-					<span>Login</span>
-				</a>
-			</li><!-- End Login Page Nav -->
-
-			<li class="nav-item">
-				<a class="nav-link collapsed" href="pages-error-404.html">
-					<i class="bi bi-dash-circle"></i>
-					<span>Error 404</span>
-				</a>
-			</li><!-- End Error 404 Page Nav -->
-
-			<li class="nav-item">
-				<a class="nav-link collapsed" href="pages-blank.html">
-					<i class="bi bi-file-earmark"></i>
-					<span>Blank</span>
-				</a>
-			</li><!-- End Blank Page Nav -->
 
 		</ul>
 
@@ -255,46 +238,92 @@
 	<main id="main" class="main">
 
 		<div class="pagetitle">
-			<h1>Autores</h1>
+			<h1>Idiomas</h1>
 			<nav>
 				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+					<li class="breadcrumb-item"><a href="/index">Inicio</a></li>
 				</ol>
 			</nav>
 		</div><!-- End Page Title -->
 
-		<table class="table table-hover datatable">
-		  <thead>
-		    <tr>
-		      <th>Descripcion</th>
-		      <th>Activo</th>
-		    </tr>
-		  </thead>
-		  <tbody>
-		    <tr th:each="idioma:${idiomas}">
-		      <td th:text="${idioma.descripcion}">Descripcion</td>
-		      <td th:text="${idioma.activo ? 'Sí' : 'No'}">Activo</td>
-		    </tr>
-		  </tbody>
-		</table>
 
+		<div class="card">
+			<div class="card-body">
 
-
+				<!-- Table with hoverable rows -->
+				<table class="table table-hover datatable">
+					<thead>
+						<tr>
+							<th>Descripcion</th>
+							<th>Activo</th>
+							<th>Acciones</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="idioma:${idiomas}">
+							<td th:text="${idioma.descripcion}">Descripcion</td>
+							<td th:text="${idioma.activo ? 'Sí' : 'No'}">Activo</td>
+							<td>
+								<button type="button" class="btn btn-info" th:attr="data-id=${idioma.id}"
+									data-bs-toggle="modal" data-bs-target="#editIdiomaModal">
+									<i class="bi bi-pencil-square"></i>
+								</button>
+								<form th:action="@{/idiomas/delete/{id}(id=${idioma.id})}" method="post"
+									style="display:inline;">
+									<button type="submit" class="btn btn-danger">
+										<i class="bi bi-trash"></i>
+									</button>
+								</form>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
 
 	</main><!-- End #main -->
 
+
+	<!-- ======= Modal Create ======= -->
+
+	<!-- Modal para Editar Idioma -->
+	<div class="modal fade" id="editIdiomaModal" tabindex="-1" aria-labelledby="editIdiomaLabel" aria-hidden="true">
+	    <div class="modal-dialog">
+	        <div class="modal-content">
+	            <div class="modal-header">
+	                <h5 class="modal-title" id="editIdiomaLabel">Editar Idioma</h5>
+	                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+	            </div>
+	            <div class="modal-body">
+	                <form id="editIdiomaForm" th:action="@{/idiomas/update}" method="post">
+	                    <input type="hidden" id="idiomaId" name="id">
+	                    <div class="form-group">
+	                        <label for="descripcion">Descripción:</label>
+	                        <input type="text" class="form-control" id="descripcion" name="descripcion">
+	                    </div>
+	                    <div class="form-group">
+	                        <label for="activo">Activo:</label>
+	                        <input type="checkbox" class="form-check-input" id="activo" name="activo">
+	                    </div>
+	                    <div class="modal-footer">
+	                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+	                        <button type="submit" class="btn btn-primary">Guardar cambios</button>
+	                    </div>
+	                </form>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+
+
+
+
+
+
+
 	<!-- ======= Footer ======= -->
 	<footer id="footer" class="footer">
-		<div class="copyright">
-			&copy; Copyright <strong><span>Biblioteca</span></strong>. All Rights Reserved
-		</div>
-		<div class="credits">
-			<!-- All the links in the footer should remain intact. -->
-			<!-- You can delete the links only if you purchased the pro version. -->
-			<!-- Licensing information: https://bootstrapmade.com/license/ -->
-			<!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-			Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-		</div>
+
 	</footer><!-- End Footer -->
 
 	<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
@@ -312,27 +341,119 @@
 
 	<!-- Template Main JS File -->
 	<script>
-	        $(document).ready(function() {
-	            $('.datatable').DataTable({
-	                dom: 'Bfrtip',
-	                buttons: [
-	                    {
-	                        extend: 'excelHtml5',
-	                        text: 'Exportar a Excel',
-	                        title: 'Reporte de Autores'
-	                    },
-	                    {
-	                        extend: 'pdfHtml5',
-	                        text: 'Exportar a PDF',
-	                        title: 'Reporte de Autores',
-	                        orientation: 'landscape',
-	                        pageSize:	 'A4'
-	                    },
-	                    'print'
-	                ]
-	            });
-	        });
-	    </script>	
+
+		/*document.addEventListener('DOMContentLoaded', function () {
+			var editIdiomaModal = document.getElementById('editIdiomaModal');
+			if (editIdiomaModal) {
+				editIdiomaModal.addEventListener('show.bs.modal', function (event) {
+					var button = event.relatedTarget; // Button that triggered the modal
+					var idiomaId = button.getAttribute('data-id'); // Extract the ID from data-id attribute
+
+					// Set the form action URL to include the idioma ID
+					document.getElementById('idiomasForm').action = `/idiomas/edit/${idiomaId}`;
+
+					// Optional: If needed, you could populate additional fields here
+				});
+			}
+		});*/
+
+
+		document.addEventListener('DOMContentLoaded', function () {
+		    var editIdiomaModal = document.getElementById('editIdiomaModal');
+		    if (editIdiomaModal) {
+		        editIdiomaModal.addEventListener('show.bs.modal', function (event) {
+		            var button = event.relatedTarget; // Button that triggered the modal
+		            var idiomaId = button.getAttribute('data-id'); // Extract the ID from data-id attribute
+
+		            // Set the ID in the hidden input field
+		            document.getElementById('idiomaId').value = idiomaId;
+
+		            // Optionally fetch and populate additional details if needed
+		            // This is where you would typically make an AJAX call to load the details
+		        });
+		    }
+		});
+
+
+
+		$(document).ready(function () {
+			$('.datatable').DataTable({
+				dom: 'Bfrtip',
+				buttons: [
+					{
+						extend: 'excelHtml5',
+						text: 'Exportar a Excel',
+						title: 'Reporte de Autores'
+					},
+					{
+						extend: 'pdfHtml5',
+						text: 'Exportar a PDF',
+						title: 'Reporte de Autores',
+						orientation: 'landscape',
+						pageSize: 'A4'
+					},
+					'print'
+				]
+			});
+		});
+
+		/*	document.addEventListener('DOMContentLoaded', function () {
+				const editIdiomaModal = document.getElementById('editIdiomaModal');
+				if (editIdiomaModal) {
+					editIdiomaModal.addEventListener('show.bs.modal', function (event) {
+						const button = event.relatedTarget;
+						const idiomaId = button.getAttribute('data-id');
+						const formAction = `/idiomas/${idiomaId}`;
+
+						// Set the form action
+						const form = document.getElementById('idiomasForm');
+						if (form) {
+							form.action = formAction;
+						}
+
+						// Fetch existing data to populate the modal
+						fetch(`/idiomas/${idiomaId}`)
+							.then(response => response.text())
+							.then(html => {
+								// Load the form data into the modal
+								document.querySelector('#editIdiomaModal .modal-body').innerHTML = html;
+							})
+							.catch(error => console.error('Error:', error));
+					});
+				}
+			});
+
+			function submitIdiomaForm() {
+				document.getElementById('idiomasForm').submit();
+			}
+
+
+
+
+			 document.addEventListener('DOMContentLoaded', function() {
+				 const editIdiomaModal = document.getElementById('editIdiomaModal');
+				 if (editIdiomaModal) {
+					 editIdiomaModal.addEventListener('show.bs.modal', function(event) {
+						 const button = event.relatedTarget;
+						 const idiomaId = button.getAttribute('data-id');
+ 
+						 fetch(`/idiomas/${idiomaId}`)
+							 .then(response => response.json())
+							 .then(data => {
+								 document.getElementById('descripcion').value = data.descripcion;
+								 document.getElementById('activo').checked = data.activo;
+								 document.getElementById('idiomasForm').action = `/idiomas/${data.id}`;
+							 })
+							 .catch(error => console.error('Error:', error));
+					 });
+				 }
+			 });
+ 
+			 function submitIdiomaForm() {
+				 document.getElementById('idiomasForm').submit();
+			 }*/
+
+	</script>
 
 </body>
 
