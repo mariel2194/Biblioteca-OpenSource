@@ -1241,12 +1241,3 @@ h6 {
 	object-fit: cover;
 }
 
-.card {
-	margin: 100px;
-	/* Remueve los márgenes */
-}
-
-.card-body {
-	padding: 100rem;
-	/* Ajusta el padding según tus necesidades */
-}
