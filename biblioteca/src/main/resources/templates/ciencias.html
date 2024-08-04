@@ -31,18 +31,18 @@
 	<!-- Template Main CSS File -->
 	<link href="assets/css/style.css" rel="stylesheet">
 	<!-- DataTables CSS -->
-	    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
-	    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.7.1/css/buttons.dataTables.min.css">
-	    <!-- jQuery -->
-	    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	    <!-- DataTables JS -->
-	    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-	    <script src="https://cdn.datatables.net/buttons/1.7.1/js/dataTables.buttons.min.js"></script>
-	    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-	    <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.html5.min.js"></script>
-	    <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.print.min.js"></script>
-	    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-	    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+	<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.7.1/css/buttons.dataTables.min.css">
+	<!-- jQuery -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<!-- DataTables JS -->
+	<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/buttons/1.7.1/js/dataTables.buttons.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+	<script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.html5.min.js"></script>
+	<script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.print.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
 
 
 	<!-- =======================================================
@@ -224,11 +224,11 @@
 
 			</li><!-- End Icons Nav -->
 			<li class="nav-item">
-							<a class="nav-link collapsed" data-bs-target="#icons-nav" href="/tipoBibliografia">
-								<i class="bi bi-gem"></i><span>Tipo Bibliografia</span><i class="bi bi-chevron-down ms-auto"></i>
-							</a>
+				<a class="nav-link collapsed" data-bs-target="#icons-nav" href="/tipoBibliografia">
+					<i class="bi bi-gem"></i><span>Tipo Bibliografia</span><i class="bi bi-chevron-down ms-auto"></i>
+				</a>
 
-						</li><!-- End Icons Nav -->
+			</li><!-- End Icons Nav -->
 
 			<li class="nav-heading">Usuarios</li>
 
@@ -247,33 +247,7 @@
 			</li><!-- End F.A.Q Page Nav -->
 
 
-			<li class="nav-item">
-				<a class="nav-link collapsed" href="pages-register.html">
-					<i class="bi bi-card-list"></i>
-					<span>Registor</span>
-				</a>
-			</li><!-- End Register Page Nav -->
-
-			<li class="nav-item">
-				<a class="nav-link collapsed" href="pages-login.html">
-					<i class="bi bi-box-arrow-in-right"></i>
-					<span>Login</span>
-				</a>
-			</li><!-- End Login Page Nav -->
-
-			<li class="nav-item">
-				<a class="nav-link collapsed" href="pages-error-404.html">
-					<i class="bi bi-dash-circle"></i>
-					<span>Error 404</span>
-				</a>
-			</li><!-- End Error 404 Page Nav -->
-
-			<li class="nav-item">
-				<a class="nav-link collapsed" href="pages-blank.html">
-					<i class="bi bi-file-earmark"></i>
-					<span>Blank</span>
-				</a>
-			</li><!-- End Blank Page Nav -->
+			
 
 		</ul>
 
@@ -291,22 +265,32 @@
 		</div><!-- End Page Title -->
 
 		<table class="table table-hover datatable">
-		  <thead>
-		    <tr>
-		      <th>Descripcion</th>
-	
-		      <th>Activo</th>
-	
-		    </tr>
-		  </thead>
-		  <tbody>
-		    <tr th:each="ciencia:${ciencias}">
-		      <td th:text="${ciencia.descripcion}">Descripcion</td>
-		  
-		      <td th:text="${ciencia.activo ? 'Sí' : 'No'}">Activo</td>
-		   
-		    </tr>
-		  </tbody>
+			<thead>
+				<tr>
+					<th>Descripcion</th>
+
+					<th>Activo</th>
+
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="ciencia:${ciencias}">
+					<td th:text="${ciencia.descripcion}">Descripcion</td>
+
+					<td th:text="${ciencia.activo ? 'Sí' : 'No'}">Activo</td>
+					<td> <button type="button" class="btn btn-info editButton" th:data-id="${ciencia.id}" data-bs-toggle="modal"
+							data-bs-target="#editCienciasModal">
+							<i class="bi bi-pencil-square"></i>
+						</button>
+						<form th:action="@{/ciencias/delete/{id}(id=${ciencia.id})}"  method="post" style="display:inline;">
+							<button type="submit" class="btn btn-danger">
+								<i class="bi bi-trash"></i>
+							</button>
+						</form>
+					</td>
+
+				</tr>
+			</tbody>
 		</table>
 
 
@@ -314,18 +298,78 @@
 
 	</main><!-- End #main -->
 
+	<!-- Modal para Editar Ciencias -->
+				
+		<div class="modal fade" id="editCienciasModal" tabindex="-1" aria-labelledby="editCienciasLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="editCienciasLabel">Editar Ciencia</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<form id="cienciasForm" th:action="@{/ciencias/update}" method="post" th:object="${ciencias}">
+							<input type="hidden" id="cienciaId" name="id">
+							<div class="form-group">
+								<label for="nombre">Descripcion:</label>
+								<input type="text" class="form-control" id="descripcion" name="descripcion"
+									th:value="${ciencia?.descripcion}">
+							</div>
+							
+							<div class="form-group">
+								<label for="activo">Activo:</label>
+								<input type="checkbox" class="form-check-input" id="activo" name="activo">
+							</div>
+							
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+								<button type="submit" class="btn btn-primary">Guardar cambios</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+		<!-- Modal para Crear Ciencias -->
+		<div class="modal fade" id="crearCienciasModal" tabindex="-1" aria-labelledby="crearCienciasLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="crearCienciasLabel">Crear Ciencia</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<form th:action="@{/ciencias/addnew}" method="post" th:object="${ciencia}">
+							<div class="form-group">
+								<label for="nombre">Descripcion:</label>
+								<input type="text" class="form-control" id="descripcion" name="descripcion"
+									th:value="${ciencia?.descripcion}">
+							</div>							
+							<div class="form-group">
+								<label for="activo">Activo:</label>
+								<input type="checkbox" class="form-check-input" id="activo" name="activo"
+									th:checked="${autor?.activo}">
+							</div>
+							<button type="submit" class="btn btn-primary">Guardar</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+	
+	
+	
+	
+	
 	<!-- ======= Footer ======= -->
 	<footer id="footer" class="footer">
-		<div class="copyright">
-			&copy; Copyright <strong><span>NiceAdmin</span></strong>. All Rights Reserved
-		</div>
-		<div class="credits">
-			<!-- All the links in the footer should remain intact. -->
-			<!-- You can delete the links only if you purchased the pro version. -->
-			<!-- Licensing information: https://bootstrapmade.com/license/ -->
-			<!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-			Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-		</div>
+		
 	</footer><!-- End Footer -->
 
 	<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
@@ -343,27 +387,62 @@
 
 	<!-- Template Main JS File -->
 	<script>
-	        $(document).ready(function() {
-	            $('.datatable').DataTable({
-	                dom: 'Bfrtip',
-	                buttons: [
-	                    {
-	                        extend: 'excelHtml5',
-	                        text: 'Exportar a Excel',
-	                        title: 'Reporte de Autores'
-	                    },
-	                    {
-	                        extend: 'pdfHtml5',
-	                        text: 'Exportar a PDF',
-	                        title: 'Reporte de Autores',
-	                        orientation: 'landscape',
-	                        pageSize:	 'A4'
-	                    },
-	                    'print'
-	                ]
-	            });
-	        });
-	    </script>	
+		$(document).ready(function () {
+			$('.datatable').DataTable({
+				dom: 'Bfrtip',
+				buttons: [
+					{
+						extend: 'excelHtml5',
+						text: 'Exportar a Excel',
+						title: 'Reporte de Autores'
+					},
+					{
+						extend: 'pdfHtml5',
+						text: 'Exportar a PDF',
+						title: 'Reporte de Autores',
+						orientation: 'landscape',
+						pageSize: 'A4'
+					},
+					'print'
+				]
+			});
+		});
+		
+		document.addEventListener('DOMContentLoaded', function () {
+						var editAutoresModal = document.getElementById('editAutoresModal');
+						if (editAutoresModal) {
+							editAutoresModal.addEventListener('show.bs.modal', function (event) {
+								var button = event.relatedTarget; // Button that triggered the modal
+								var autorId = button.getAttribute('data-id'); // Extract the ID from data-id attribute
+
+								// Set the autorId in the hidden input field
+								document.getElementById('autorId').value = autorId;
+
+								// Optional: Fetch additional details if needed
+							});
+						}
+					});
+					
+					document.addEventListener('DOMContentLoaded', function() {
+					    document.querySelectorAll('.editButton').forEach(button => {
+					        button.addEventListener('click', function() {
+					            const cienciaId = this.getAttribute('data-id');
+					            const row = this.closest('tr');
+					            const descripcion = row.children[0].innerText;					     
+					            const activo = row.children[2].innerText === 'Sí'; // Convertir el texto en booleano
+					   
+
+					            // Rellenar el formulario del modal
+					            document.getElementById('cienciaId').value = cienciaId;
+					            document.getElementById('descripcion').value = descripcion;
+					       
+					        });
+					    });
+					});
+					
+					
+					
+	</script>
 
 </body>
 

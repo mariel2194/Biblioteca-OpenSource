@@ -296,11 +296,23 @@
 					<td th:text="${libro.ciencia.descripcion}">Ciencia-Genero</td>
 					<td th:text="${libro.activo ? 'Sí' : 'No'}">Activo</td>
 					<td>
-						<button type="button" class="btn btn-primary" data-bs-toggle="modal"
-							data-bs-target="#prestamoModal" th:data-libro-id="${libro.id}"
-							th:text="' Solicitar Préstamo ID Libro:' + ${libro.id}"></button>
+
+
+						<form method="post">
+							<button type="button" class="btn btn-primary" data-bs-toggle="modal"
+								data-bs-target="#prestamoModal" th:data-libro-id="${libro.id}"><i
+									class="bi bi-box-arrow-in-right"></i></button>
+							<button type="button" class="btn btn-info editButton" data-bs-toggle="modal"
+								data-bs-target="#editAutoresModal">
+								<i class="bi bi-pencil-square"></i>
+							</button>
+							<button type="submit" class="btn btn-danger">
+								<i class="bi bi-trash"></i>
+							</button>
+						</form>
 
 					</td>
+
 				</tr>
 
 			</tbody>
@@ -363,8 +375,8 @@
 
 	<!-- ======= Footer ======= -->
 	<footer id="footer" class="footer">
-		
-		
+
+
 	</footer><!-- End Footer -->
 
 	<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
@@ -402,15 +414,15 @@
 				]
 			});
 		});
-		document.addEventListener('DOMContentLoaded', function() {
-		       var prestamoModal = document.getElementById('prestamoModal');
-		       prestamoModal.addEventListener('show.bs.modal', function(event) {
-		           var button = event.relatedTarget; 
-		           var libroId = button.getAttribute('data-libro-id'); // Extrae el ID del libro del atributo personalizado
-		           var libroIdInput = document.getElementById('libroId'); // Campo oculto en el formulario
-		           libroIdInput.value = libroId; // Asigna el ID del libro al campo oculto
-		       });
-		   });
+		document.addEventListener('DOMContentLoaded', function () {
+			var prestamoModal = document.getElementById('prestamoModal');
+			prestamoModal.addEventListener('show.bs.modal', function (event) {
+				var button = event.relatedTarget;
+				var libroId = button.getAttribute('data-libro-id'); // Extrae el ID del libro del atributo personalizado
+				var libroIdInput = document.getElementById('libroId'); // Campo oculto en el formulario
+				libroIdInput.value = libroId; // Asigna el ID del libro al campo oculto
+			});
+		});
 
 
 
