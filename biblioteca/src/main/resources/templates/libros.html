@@ -511,7 +511,7 @@
 				<div class="modal-body">
 					<form id="idiomasForm" th:action="@{/idiomas/update}" method="post">
 						<label for="libro" class="form-label">Libro</label>
-						<input type="text" id="libroId" name="libroId">
+						<input type="text" id="libroId" name="libroId" readonly>
 						<div class="mb-3">
 							<label for="fechaPrestamo" class="form-label">Fecha del Préstamo</label>
 							<input type="date" class="form-control" id="fechaPrestamo" name="fechaPrestamo" required>
@@ -627,15 +627,15 @@
 					// Rellenar el formulario del modal
 					document.getElementById('libroId').value = libroId;
 					document.getElementById('descripcion').value = descripcion;
-					document.getElementById('autor').value = autor;
-					document.getElementById('editora').value = editora;
+					document.getElementById('autor').value = autor.nombre;
+					document.getElementById('editora').value = editora.descripcion;
 					document.getElementById('anioPublicacion').value = anioPublicacion;
 					document.getElementById('ISBN').value = ISBN;
 					document.getElementById('edicion').value = edicion;
 					document.getElementById('cantidad').value = cantidad;
-					document.getElementById('idioma').value = idioma;
+					document.getElementById('idioma').value = idioma.descripcion;
 					document.getElementById('signaturaTipografica').value = signaturaTipografica;
-					document.getElementById('ciencia').value = ciencia;
+					document.getElementById('ciencia').value = ciencia.descripcion;
 					document.getElementById('activo').checked = activo;
 
 					// Aquí se puede añadir lógica para seleccionar el idioma correcto si es necesario
