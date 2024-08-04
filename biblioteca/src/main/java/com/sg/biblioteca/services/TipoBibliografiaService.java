@@ -18,4 +18,28 @@ public class TipoBibliografiaService {
 	public List<TipoBibliografia> ListTipoBibliografia(){
 		return tipoBibliografiaRepository.findAll();
 	}
+	
+	public TipoBibliografia getTipoBibliografiaById(Integer id) {
+        return tipoBibliografiaRepository.findById(id).orElse(null);
+    }
+	
+	
+	//Save a new tipoBibliografia
+	public void saveNew(TipoBibliografia ciencia) {
+		tipoBibliografiaRepository.save(ciencia);
+	}
+
+    public void updateTipoBibliografia(TipoBibliografia ciencia) {
+        TipoBibliografia existingTipoBibliografia = tipoBibliografiaRepository.findById(ciencia.getId()).orElse(null);
+        if (existingTipoBibliografia != null) {
+            existingTipoBibliografia.setDescripcion(ciencia.getDescripcion());
+            existingTipoBibliografia.setActivo(ciencia.isActivo());
+            tipoBibliografiaRepository.save(existingTipoBibliografia);
+        }
+    }
+
+    public void deleteTipoBibliografia(Integer id) {
+        tipoBibliografiaRepository.deleteById(id);
+    }
+	
 }

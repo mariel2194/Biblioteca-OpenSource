@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sg.biblioteca.models.Ciencias;
-import com.sg.biblioteca.models.Idiomas;
 import com.sg.biblioteca.services.CienciasService;
 
 @Controller

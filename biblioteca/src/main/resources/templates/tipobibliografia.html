@@ -249,10 +249,10 @@
 	<main id="main" class="main">
 
 		<div class="pagetitle">
-			<h1>Autores</h1>
+			<h1>Tipos de Bibliografía</h1>
 			<nav>
 				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+					<li class="breadcrumb-item"><a href="index.html">Volver al Inicio</a></li>
 				</ol>
 			</nav>
 		</div><!-- End Page Title -->
@@ -286,6 +286,68 @@
 
 
 	</main><!-- End #main -->
+	
+	<!-- Modal para Editar Ciencias -->
+					
+			<div class="modal fade" id="editCienciasModal" tabindex="-1" aria-labelledby="editCienciasLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="editCienciasLabel">Editar Tipo de Bibliografia</h5>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						</div>
+						<div class="modal-body">
+							<form id="tipoBibliografiaForm" th:action="@{/tipoBibliografia/update}" method="post" th:object="${tipoBibliografia}">
+								<input type="hidden" id="cienciaId" name="id">
+								<div class="form-group">
+									<label for="nombre">Descripcion:</label>
+									<input type="text" class="form-control" id="descripcion" name="descripcion"
+										th:value="${tipoBibliografi?.descripcion}">
+								</div>
+								
+								<div class="form-group">
+									<label for="activo">Activo:</label>
+									<input type="checkbox" class="form-check-input" id="activo" name="activo">
+								</div>
+								
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+									<button type="submit" class="btn btn-primary">Guardar cambios</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+
+			<!-- Modal para Crear Ciencias -->
+			<div class="modal fade" id="crearCienciasModal" tabindex="-1" aria-labelledby="crearCienciasLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="crearCienciasLabel">Crear Ciencia</h5>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						</div>
+						<div class="modal-body">
+							<form th:action="@{/ciencias/addnew}" method="post" th:object="${ciencia}">
+								<div class="form-group">
+									<label for="nombre">Descripcion:</label>
+									<input type="text" class="form-control" id="descripcion" name="descripcion"
+										th:value="${ciencia?.descripcion}">
+								</div>							
+								<div class="form-group">
+									<label for="activo">Activo:</label>
+									<input type="checkbox" class="form-check-input" id="activo" name="activo"
+										th:checked="${autor?.activo}">
+								</div>
+								<button type="submit" class="btn btn-primary">Guardar</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
 
 	<!-- ======= Footer ======= -->
 	<footer id="footer" class="footer">
@@ -306,6 +368,8 @@
 	<script src="assets/vendor/php-email-form/validate.js"></script>
 
 	<!-- Template Main JS File -->
+	<script src="assets/js/main.js"></script>
+
 	<script>
 		$(document).ready(function () {
 			$('.datatable').DataTable({
@@ -327,6 +391,23 @@
 				]
 			});
 		});
+		
+		document.addEventListener('DOMContentLoaded', function() {
+							    document.querySelectorAll('.editButton').forEach(button => {
+							        button.addEventListener('click', function() {
+							            const cienciaId = this.getAttribute('data-id');
+							            const row = this.closest('tr');
+							            const descripcion = row.children[0].innerText;					     
+							            const activo = row.children[2].innerText === 'Sí'; // Convertir el texto en booleano
+							   
+
+							            // Rellenar el formulario del modal
+							            document.getElementById('tipoBibliografiaId').value = cienciaId;
+							            document.getElementById('descripcion').value = descripcion;
+							       
+							        });
+							    });
+							});
 	</script>
 
 </body>
