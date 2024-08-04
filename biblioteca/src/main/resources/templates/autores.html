@@ -238,20 +238,26 @@
 
 	<main id="main" class="main">
 
-		<div class="pagetitle">
-			<h1>Autores</h1>
-			<nav>
-				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
-				</ol>
-			</nav>
-		</div><!-- End Page Title -->
+	
 
-		<div class="card">
+
+		<div class="card" style="padding: 1.5em;">
+
 			<div class="card-body">
-				<button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#crearAutoresModal">
-					Agregar Autor
-				</button>
+				<div class="pagetitle">
+					<h1>Autores</h1>
+					
+					<nav>
+						<ol class="breadcrumb">
+							<li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+							<button style="margin-left: 70em; display: inline-block; position: absolute; top: 20px;" type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#crearAutoresModal">
+														Agregar Autor
+													</button>
+
+						</ol>
+
+					</nav>
+				</div><!-- End Page Title -->
 				<table class="table table-hover datatable">
 					<thead>
 						<tr>
@@ -259,6 +265,8 @@
 							<th>Pais de Origen</th>
 							<th>Activo</th>
 							<th>Idioma</th>
+							<th>Acciones</th>
+
 						</tr>
 					</thead>
 					<tbody>
@@ -269,13 +277,15 @@
 							<td th:text="${autor.idioma.descripcion}">Idioma</td>
 
 							<td>
-								<button type="button" class="btn btn-info editButton" th:data-id="${autor.id}" data-bs-toggle="modal" data-bs-target="#editAutoresModal">
-								                   <i class="bi bi-pencil-square"></i>
-								               </button>
-								               <form th:action="@{/autores/delete/{id}(id=${autor.id})}" method="post" style="display:inline;">
-								                   <button type="submit" class="btn btn-danger">
-								                       <i class="bi bi-trash"></i>
-								                   </button>
+								<button type="button" class="btn btn-info editButton" th:data-id="${autor.id}"
+									data-bs-toggle="modal" data-bs-target="#editAutoresModal">
+									<i class="bi bi-pencil-square"></i>
+								</button>
+								<form th:action="@{/autores/delete/{id}(id=${autor.id})}" method="post"
+									style="display:inline;">
+									<button type="submit" class="btn btn-danger">
+										<i class="bi bi-trash"></i>
+									</button>
 								</form>
 							</td>
 						</tr>
@@ -290,9 +300,9 @@
 	</main><!-- End #main -->
 
 	<!-- Modal para Editar Autores -->
-	
-	
-	
+
+
+
 	<div class="modal fade" id="editAutoresModal" tabindex="-1" aria-labelledby="editAutoresLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -428,34 +438,34 @@
 					});
 				}
 			});
-			
-			document.addEventListener('DOMContentLoaded', function() {
-			    // Manejar el clic en el botón de editar
-			    document.querySelectorAll('.editButton').forEach(button => {
-			        button.addEventListener('click', function() {
-			            // Obtener el ID del autor
-			            const autorId = this.getAttribute('data-id');
 
-			            // Encontrar la fila correspondiente en la tabla
-			            const row = this.closest('tr');
-			            const nombre = row.children[0].innerText;
-			            const paisOrigen = row.children[1].innerText;
-			            const activo = row.children[2].innerText === 'Sí'; // Convertir el texto en booleano
-			            const idioma = row.children[3].innerText;
+			document.addEventListener('DOMContentLoaded', function () {
+				// Manejar el clic en el botón de editar
+				document.querySelectorAll('.editButton').forEach(button => {
+					button.addEventListener('click', function () {
+						// Obtener el ID del autor
+						const autorId = this.getAttribute('data-id');
 
-			            // Rellenar el formulario del modal
-			            document.getElementById('autorId').value = autorId;
-			            document.getElementById('nombre').value = nombre;
-			            document.getElementById('paisOrigen').value = paisOrigen;
-			            document.getElementById('activo').checked = activo;
+						// Encontrar la fila correspondiente en la tabla
+						const row = this.closest('tr');
+						const nombre = row.children[0].innerText;
+						const paisOrigen = row.children[1].innerText;
+						const activo = row.children[2].innerText === 'Sí'; // Convertir el texto en booleano
+						const idioma = row.children[3].innerText;
 
-			            // Aquí se puede añadir lógica para seleccionar el idioma correcto si es necesario
-			            // Si estás utilizando IDs de idiomas, puedes configurar esto de manera adecuada.
-			        });
-			    });
+						// Rellenar el formulario del modal
+						document.getElementById('autorId').value = autorId;
+						document.getElementById('nombre').value = nombre;
+						document.getElementById('paisOrigen').value = paisOrigen;
+						document.getElementById('activo').checked = activo;
+
+						// Aquí se puede añadir lógica para seleccionar el idioma correcto si es necesario
+						// Si estás utilizando IDs de idiomas, puedes configurar esto de manera adecuada.
+					});
+				});
 			});
-			
-		
+
+
 
 
 		</script>
