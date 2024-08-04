@@ -25,15 +25,15 @@ public class TipoBibliografiaService {
 	
 	
 	//Save a new tipoBibliografia
-	public void saveNew(TipoBibliografia ciencia) {
-		tipoBibliografiaRepository.save(ciencia);
+	public void saveNew(TipoBibliografia tipoBibliografia) {
+		tipoBibliografiaRepository.save(tipoBibliografia);
 	}
 
-    public void updateTipoBibliografia(TipoBibliografia ciencia) {
-        TipoBibliografia existingTipoBibliografia = tipoBibliografiaRepository.findById(ciencia.getId()).orElse(null);
+    public void updateTipoBibliografia(TipoBibliografia tipoBibliografia) {
+        TipoBibliografia existingTipoBibliografia = tipoBibliografiaRepository.findById(tipoBibliografia.getId()).orElse(null);
         if (existingTipoBibliografia != null) {
-            existingTipoBibliografia.setDescripcion(ciencia.getDescripcion());
-            existingTipoBibliografia.setActivo(ciencia.isActivo());
+            existingTipoBibliografia.setDescripcion(tipoBibliografia.getDescripcion());
+            existingTipoBibliografia.setActivo(tipoBibliografia.isActivo());
             tipoBibliografiaRepository.save(existingTipoBibliografia);
         }
     }

@@ -37,15 +37,15 @@ public class TipoBibliografiaController {
 	
 
 	@PostMapping("/tipoBibliografia/addnew")
-	public String addNew(TipoBibliografia ciencia, Model model) {
+	public String addNew(TipoBibliografia tipoBibliografia, Model model) {
 		try {
-			tipoBibliografiaService.saveNew(ciencia);
+			tipoBibliografiaService.saveNew(tipoBibliografia);
 			return "redirect:/tipoBibliografia";
 			
 		} catch (Exception e) {
 			logger.error("Error al guardar el ciencia", e);
-			model.addAttribute("errorMessage", "Error al guardar el ciencia: " + e.getMessage());
-			model.addAttribute("ciencia", ciencia);
+			model.addAttribute("errorMessage", "Error al guardar el tipoBibliografia: " + e.getMessage());
+			model.addAttribute("tipoBibliografia", tipoBibliografia);
 			return "crearTipoBibliografia";
 		}
 	}
@@ -61,16 +61,16 @@ public class TipoBibliografiaController {
 	@GetMapping("/tipoBibliografia/edit/{id}")
 	@ResponseBody
 	public ResponseEntity<TipoBibliografia> getEditTipoBibliografiaesForm(@PathVariable("id") Integer id) {
-		TipoBibliografia ciencia = tipoBibliografiaService.getTipoBibliografiaById(id);
-		if (ciencia == null) {
+		TipoBibliografia tipoBibliografia = tipoBibliografiaService.getTipoBibliografiaById(id);
+		if (tipoBibliografia == null) {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
-		return new ResponseEntity<>(ciencia, HttpStatus.OK);
+		return new ResponseEntity<>(tipoBibliografia, HttpStatus.OK);
 	}
 
 	@PostMapping("/tipoBibliografia/update")
-	public String updateTipoBibliografia(@ModelAttribute TipoBibliografia ciencia) {
-		tipoBibliografiaService.updateTipoBibliografia(ciencia);
+	public String updateTipoBibliografia(@ModelAttribute TipoBibliografia tipoBibliografia) {
+		tipoBibliografiaService.updateTipoBibliografia(tipoBibliografia);
 		return "redirect:/tipoBibliografia";
 	}
 
