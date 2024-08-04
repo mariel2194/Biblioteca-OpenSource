@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-	<title>Gestion de Autores</title>
+	<title>Gestion de Empleados</title>
 	<meta content="" name="description">
 	<meta content="" name="keywords">
 
@@ -228,11 +228,17 @@
 
 	<main id="main" class="main">
 
+		<div class="card" style="padding: 1.5em;">
+
+					<div class="card-body">
 		<div class="pagetitle">
-			<h1>Autores</h1>
+			<h1>Ciencias</h1>
 			<nav>
 				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+					<li class="breadcrumb-item"><a href="/index">Volver al Inicio</a></li>
+					<button style="margin-left: 70em; display: inline-block; position: absolute; top: 20px;" type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#crearCienciaModal">
+																			Agregar Ciencia
+																		</button>
 				</ol>
 			</nav>
 		</div><!-- End Page Title -->
@@ -241,8 +247,9 @@
 			<thead>
 				<tr>
 					<th>Descripcion</th>
-
 					<th>Activo</th>
+					<th>Acciones</th>
+
 
 				</tr>
 			</thead>
@@ -307,7 +314,7 @@
 
 
 		<!-- Modal para Crear Ciencias -->
-		<div class="modal fade" id="crearCienciasModal" tabindex="-1" aria-labelledby="crearCienciasLabel" aria-hidden="true">
+		<div class="modal fade" id="crearCienciaModal" tabindex="-1" aria-labelledby="crearCienciasLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
