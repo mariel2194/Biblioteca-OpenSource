@@ -111,7 +111,7 @@ public class PrestamosController {
 
             // Si hay errores, redirige de nuevo al formulario
             if (hasErrors) {
-                return "redirect:/prestamos";
+                return "error";
             }
 
             // Si todos los campos son válidos, continúa con la creación del préstamo

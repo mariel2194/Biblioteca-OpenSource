@@ -8,9 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.sg.biblioteca.models.Prestamos;
-import com.sg.biblioteca.models.Usuarios;
-import com.sg.biblioteca.models.Empleados;
-
 import com.sg.biblioteca.models.Libros;
 import com.sg.biblioteca.repositories.DevolucionesRepository;
 import com.sg.biblioteca.repositories.EmpleadosRepository;
@@ -29,7 +26,6 @@ public class PrestamosService {
 
 	@Autowired
 	private LibrosRepository librosRepository;
-
 
 	@Autowired
 	private DevolucionesRepository devolucionesRepository;

@@ -531,7 +531,7 @@
 						</div>
 						<div class="mb-3">
 							<label for="montoPorDia" class="form-label">Monto por Día</label>
-							<input type="number" class="form-control" id="montoPorDia" value="150" name="montoPorDia" required disabled>
+							<input type="number" class="form-control" id="montoPorDia" name="montoPorDia" required readonly value=250>
 						</div>
 						<div class="mb-3">
 							<label for="empleado" class="form-label">Empleado</label>
@@ -590,7 +590,7 @@
 			if (prestamoModal) {
 				prestamoModal.addEventListener('show.bs.modal', function (event) {
 					var button = event.relatedTarget; // Button that triggered the modal
-					var libroId = button.getAttribute('data-id'); // Extract the ID from data-id attribute
+					var libroId = button.getAttribute('data-libro-id'); // Extract the ID from data-id attribute
 
 					// Set the autorId in the hidden input field
 					document.getElementById('libroId').value = libroId;
