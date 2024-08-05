@@ -301,6 +301,16 @@
 		    <tr th:each="editora:${editoras}">
 		      <td th:text="${editora.descripcion}">Nombre</td>
 		      <td th:text="${editora.activo ? 'Sí' : 'No'}">Activo</td>
+			  <td>
+			  								<button type="button" class="btn btn-info editButton" data-bs-toggle="modal" data-bs-target="#editAutoresModal">
+			  								                   <i class="bi bi-pencil-square"></i>
+			  								               </button>
+			  								               <form  method="post" style="display:inline;">
+			  								                   <button type="submit" class="btn btn-danger">
+			  								                       <i class="bi bi-trash"></i>
+			  								                   </button>
+			  								</form>
+			  							</td>
 		    </tr>
 		  </tbody>
 		</table>

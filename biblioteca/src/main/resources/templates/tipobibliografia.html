@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-	<title>Gestion de Autores</title>
+	<title>Gestion de Empleados</title>
 	<meta content="" name="description">
 	<meta content="" name="keywords">
 
@@ -31,27 +31,19 @@
 	<!-- Template Main CSS File -->
 	<link href="assets/css/style.css" rel="stylesheet">
 	<!-- DataTables CSS -->
-	    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
-	    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.7.1/css/buttons.dataTables.min.css">
-	    <!-- jQuery -->
-	    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	    <!-- DataTables JS -->
-	    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-	    <script src="https://cdn.datatables.net/buttons/1.7.1/js/dataTables.buttons.min.js"></script>
-	    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-	    <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.html5.min.js"></script>
-	    <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.print.min.js"></script>
-	    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-	    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+	<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.7.1/css/buttons.dataTables.min.css">
+	<!-- jQuery -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<!-- DataTables JS -->
+	<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/buttons/1.7.1/js/dataTables.buttons.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+	<script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.html5.min.js"></script>
+	<script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.print.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
 
-
-	<!-- =======================================================
-  * Template Name: NiceAdmin
-  * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
-  * Updated: Apr 20 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body>
@@ -92,13 +84,13 @@
 
 					<a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
 						<img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-						<span class="d-none d-md-block dropdown-toggle ps-2">Kevin</span>
+						<span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
 					</a><!-- End Profile Iamge Icon -->
 
 					<ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
 						<li class="dropdown-header">
 							<h6>Kevin Anderson</h6>
-							<span>Administrador IT</span>
+							<span>Web Designer</span>
 						</li>
 						<li>
 							<hr class="dropdown-divider">
@@ -162,32 +154,33 @@
 			</li><!-- End Dashboard Nav -->
 
 			<li class="nav-item">
-				<a class="nav-link collapsed" data-bs-target="#components-nav" href="/autores">
+				<a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse"
+					href="/autores">
 					<i class="bi bi-menu-button-wide"></i><span>Autores</span><i class="bi bi-chevron-down ms-auto"></i>
 				</a>
 
 			</li><!-- End Components Nav -->
 
 			<li class="nav-item">
-				<a class="nav-link collapsed" data-bs-target="#forms-nav" href="/libros">
+				<a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="/libros">
 					<i class="bi bi-journal-text"></i><span>Libros</span><i class="bi bi-chevron-down ms-auto"></i>
 				</a>
 
 			</li><!-- End Forms Nav -->
 
 			<li class="nav-item">
-				<a class="nav-link collapsed" data-bs-target="#tables-nav" href="/editoras">
+				<a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="/editoras">
 					<i class="bi bi-layout-text-window-reverse"></i><span>Editoras</span><i
 						class="bi bi-chevron-down ms-auto"></i>
 				</a>
-				
+
 			</li><!-- End Tables Nav -->
 
 			<li class="nav-item">
-				<a class="nav-link collapsed" data-bs-target="#charts-nav"href="/idiomas">
+				<a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="/idiomas">
 					<i class="bi bi-bar-chart"></i><span>Idiomas</span><i class="bi bi-chevron-down ms-auto"></i>
 				</a>
-				
+
 			</li><!-- End Charts Nav -->
 
 			<li class="nav-item">
@@ -196,51 +189,31 @@
 				</a>
 
 			</li><!-- End Icons Nav -->
+			<li class="nav-item">
+				<a class="nav-link collapsed" data-bs-target="#icons-nav" href="/tipoBibliografia">
+					<i class="bi bi-gem"></i><span>Tipo Bibliografia</span><i class="bi bi-chevron-down ms-auto"></i>
+				</a>
+
+			</li><!-- End Icons Nav -->
 
 			<li class="nav-heading">Usuarios</li>
 
 			<li class="nav-item">
-				<a class="nav-link collapsed" href="/usuarios">
+				<a class="nav-link collapsed" href="users-profile.html">
 					<i class="bi bi-person"></i>
 					<span>Estudiantes</span>
 				</a>
 			</li><!-- End Profile Page Nav -->
 
 			<li class="nav-item">
-				<a class="nav-link collapsed" href="/empleados">
+				<a class="nav-link collapsed" href="pages-faq.html">
 					<i class="bi bi-question-circle"></i>
 					<span>Empleados</span>
 				</a>
 			</li><!-- End F.A.Q Page Nav -->
 
 
-			<li class="nav-item">
-				<a class="nav-link collapsed" href="pages-register.html">
-					<i class="bi bi-card-list"></i>
-					<span>Registor</span>
-				</a>
-			</li><!-- End Register Page Nav -->
 
-			<li class="nav-item">
-				<a class="nav-link collapsed" href="/userlogin">
-					<i class="bi bi-box-arrow-in-right"></i>
-					<span>Login</span>
-				</a>
-			</li><!-- End Login Page Nav -->
-
-			<li class="nav-item">
-				<a class="nav-link collapsed" href="pages-error-404.html">
-					<i class="bi bi-dash-circle"></i>
-					<span>Error 404</span>
-				</a>
-			</li><!-- End Error 404 Page Nav -->
-
-			<li class="nav-item">
-				<a class="nav-link collapsed" href="pages-blank.html">
-					<i class="bi bi-file-earmark"></i>
-					<span>Blank</span>
-				</a>
-			</li><!-- End Blank Page Nav -->
 
 		</ul>
 
@@ -248,47 +221,134 @@
 
 	<main id="main" class="main">
 
-		<div class="pagetitle">
-			<h1>Autores</h1>
-			<nav>
-				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
-				</ol>
-			</nav>
-		</div><!-- End Page Title -->
+		<div class="card" style="padding: 1.5em;">
 
-		<table class="table table-hover datatable">
-		  <thead>
-		    <tr>
-		      <th>Descripcion</th>
-		      <th>Activo</th>
-		    </tr>
-		  </thead>
-		  <tbody>
-		    <tr th:each="tipoBibliografi:${tipoBibliografia}">
-		      <td th:text="${tipoBibliografi.descripcion}">Descripcion</td>
-		      <td th:text="${tipoBibliografi.activo ? 'Sí' : 'No'}">Activo</td>
-		    </tr>
-		  </tbody>
-		</table>
+			<div class="card-body">
+				<div class="pagetitle">
+					<h1>Tipo de Bibliografía</h1>
+					<nav>
+						<ol class="breadcrumb">
+							<li class="breadcrumb-item"><a href="/index">Volver al Inicio</a></li>
+							<button style="margin-left: 70em; display: inline-block; position: absolute; top: 20px;"
+								type="button" class="btn btn-info" data-bs-toggle="modal"
+								data-bs-target="#crearBibliografiaModal">
+								Agregar Tipo
+							</button>
+						</ol>
+					</nav>
+				</div><!-- End Page Title -->
+
+				<table class="table table-hover datatable">
+					<thead>
+						<tr>
+							<th>Descripcion</th>
+							<th>Activo</th>
+							<th>Acciones</th>
+
+
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="bibliografia:${tipoBibliografia}">
+							<td th:text="${bibliografia.descripcion}">Descripcion</td>
+
+							<td th:text="${bibliografia.activo ? 'Sí' : 'No'}">Activo</td>
+							<td> <button type="button" class="btn btn-info editButton" th:data-id="${bibliografia.id}"
+									data-bs-toggle="modal" data-bs-target="#editBibliografiaModal">
+									<i class="bi bi-pencil-square"></i>
+								</button>
+								<form th:action="@{/tipoBibliografia/delete/{id}(id=${bibliografia.id})}" method="post"
+									style="display:inline;">
+									<button type="submit" class="btn btn-danger">
+										<i class="bi bi-trash"></i>
+									</button>
+								</form>
+							</td>
+
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
 
 
 
 
 	</main><!-- End #main -->
 
+	<!-- Modal para Editar Ciencias -->
+
+	<div class="modal fade" id="editBibliografiaModal" tabindex="-1" aria-labelledby="editBibliografiaLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="editBibliografiaLabel">Editar Tipo</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<form id="tipoBibliografiaForm" th:action="@{/tipoBibliografia/update}" method="post" th:object="${tipoBibliografia}">
+						<input type="hidden" id="tipoBibliografiaId" name="id">
+						<div class="form-group">
+							<label for="nombre">Descripcion:</label>
+							<input type="text" class="form-control" id="descripcion" name="descripcion"
+								th:value="${bibliografia?.descripcion}">
+						</div>
+
+						<div class="form-group">
+							<label for="activo">Activo:</label>
+							<input type="checkbox" class="form-check-input" id="activo" name="activo">
+						</div>
+
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+							<button type="submit" class="btn btn-primary">Guardar cambios</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<!-- Modal para Crear Tipos -->
+	<div class="modal fade" id="crearBibliografiaModal" tabindex="-1" aria-labelledby="crearBibliografiaLabel"
+		aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="crearBibliografiaLabel">Crear Ciencia</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<form th:action="@{/tipoBibliografia/addnew}" method="post" th:object="${tipoBibliografia}">
+						<div class="form-group">
+							<label for="nombre">Descripcion:</label>
+							<input type="text" class="form-control" id="descripcion" name="descripcion"
+								th:value="${bibliografia?.descripcion}">
+						</div>
+						<div class="form-group">
+							<label for="activo">Activo:</label>
+							<input type="checkbox" class="form-check-input" id="activo" name="activo"
+								th:checked="${bibliografia?.activo}">
+						</div>
+						<button type="submit" class="btn btn-primary">Guardar</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+
+
 	<!-- ======= Footer ======= -->
 	<footer id="footer" class="footer">
-		<div class="copyright">
-			&copy; Copyright <strong><span>NiceAdmin</span></strong>. All Rights Reserved
-		</div>
-		<div class="credits">
-			<!-- All the links in the footer should remain intact. -->
-			<!-- You can delete the links only if you purchased the pro version. -->
-			<!-- Licensing information: https://bootstrapmade.com/license/ -->
-			<!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-			Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-		</div>
+
 	</footer><!-- End Footer -->
 
 	<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
@@ -306,27 +366,49 @@
 
 	<!-- Template Main JS File -->
 	<script>
-	        $(document).ready(function() {
-	            $('.datatable').DataTable({
-	                dom: 'Bfrtip',
-	                buttons: [
-	                    {
-	                        extend: 'excelHtml5',
-	                        text: 'Exportar a Excel',
-	                        title: 'Reporte de Autores'
-	                    },
-	                    {
-	                        extend: 'pdfHtml5',
-	                        text: 'Exportar a PDF',
-	                        title: 'Reporte de Autores',
-	                        orientation: 'landscape',
-	                        pageSize:	 'A4'
-	                    },
-	                    'print'
-	                ]
-	            });
-	        });
-	    </script>	
+		$(document).ready(function () {
+			$('.datatable').DataTable({
+				dom: 'Bfrtip',
+				buttons: [
+					{
+						extend: 'excelHtml5',
+						text: 'Exportar a Excel',
+						title: 'Reporte de Autores'
+					},
+					{
+						extend: 'pdfHtml5',
+						text: 'Exportar a PDF',
+						title: 'Reporte de Autores',
+						orientation: 'landscape',
+						pageSize: 'A4'
+					},
+					'print'
+				]
+			});
+		});
+
+		
+
+		document.addEventListener('DOMContentLoaded', function () {
+			document.querySelectorAll('.editButton').forEach(button => {
+				button.addEventListener('click', function () {
+					const tipoBibliografiaId = this.getAttribute('data-id');
+					const row = this.closest('tr');
+					const descripcion = row.children[0].innerText;
+					const activo = row.children[2].innerText === 'Sí'; // Convertir el texto en booleano
+
+
+					// Rellenar el formulario del modal
+					document.getElementById('tipoBibliografiaId').value = tipoBibliografiaId;
+					document.getElementById('descripcion').value = descripcion;
+
+				});
+			});
+		});
+
+
+
+	</script>
 
 </body>
 

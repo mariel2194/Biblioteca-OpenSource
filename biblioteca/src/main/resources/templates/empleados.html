@@ -318,8 +318,18 @@
 					<td th:text="${empleado.comision}">Comision</td>
 					<td th:text="${empleado.fechaIngreso}">Fecha de Ingreso</td>
 					<td th:text="${empleado.tanda}">Tanda</td>
-
 					<td th:text="${empleado.activo ? 'Sí' : 'No'}">Activo</td>
+					<td>
+						<button type="button" class="btn btn-info editButton"
+							data-bs-toggle="modal" data-bs-target="#editAutoresModal">
+							<i class="bi bi-pencil-square"></i>
+						</button>
+						<form method="post" style="display:inline;">
+							<button type="submit" class="btn btn-danger">
+								<i class="bi bi-trash"></i>
+							</button>
+						</form>
+					</td>
 				</tr>
 			</tbody>
 		</table>
