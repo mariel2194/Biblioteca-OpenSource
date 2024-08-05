@@ -360,7 +360,6 @@
 	</aside><!-- End Sidebar-->
 
 	<main id="main" class="main">
-
 		<div class="pagetitle">
 			<h1>Dashboard</h1>
 			<nav>
@@ -371,145 +370,91 @@
 			</nav>
 		</div><!-- End Page Title -->
 
-
 		<div class="container-fluid">
 			<div class="row mt-5">
-				<div class="col-6 col-sm-4 col-md-3 p-0">
+				<div th:each="libro, iter : ${libros}" class="col-6 col-sm-4 col-md-3 p-0">
 					<div class="card" style="margin: 10%;">
-						<img src="assets/img/img1.jpg" class="card-img-top">
+						<img th:src="${imagenes[iter.index % imagenes.size()]}" class="card-img-top">
 						<div class="card-body">
 							<div class="d-flex flex-row justify-content-between mb-0 px-3"></div>
 							<hr class="mt-2 mx-3">
 							<div class="d-flex flex-row justify-content-between px-3 pb-4">
-								<div class="d-flex flex-column"><span class="text-muted">Libro</span></div>
+								<div class="d-flex flex-column">
+									<span class="text-muted" th:text="${libro.descripcion}">Libro</span>
+								</div>
 								<div class="d-flex flex-column"></div>
 							</div>
 							<div class="mx-3 mt-3 mb-2">
-								<button type="button" class="btn btn-success btn-block">Solicitar Préstamo</button>
+								<form method="post" class="d-inline-flex gap-2">
+									<button type="button" class="btn btn-primary" data-bs-toggle="modal"
+										data-bs-target="#prestamoModal" th:data-libro-id="${libro.id}">
+										<i class="bi bi-box-arrow-in-right" data-bs-toggle="tooltip"
+											title="Solicitar Préstamo"></i> Solicitar Préstamo
+									</button>
+								</form>
 							</div>
 						</div>
 					</div>
 				</div>
-				<!-- Repite el bloque de col-6 col-sm-4 col-md-3 p-0 para cada tarjeta -->
-				<div class="col-6 col-sm-4 col-md-3 p-0">
-					<div class="card" style="margin: 10%;">
-						<img src="assets/img/img3.jpg" class="card-img-top">
-						<div class="card-body">
-							<div class="d-flex flex-row justify-content-between mb-0 px-3"></div>
-							<hr class="mt-2 mx-3">
-							<div class="d-flex flex-row justify-content-between px-3 pb-4">
-								<div class="d-flex flex-column"><span class="text-muted">Libro</span></div>
-								<div class="d-flex flex-column"></div>
-							</div>
-							<div class="mx-3 mt-3 mb-2">
-								<button type="button" class="btn btn-success btn-block">Solicitar Préstamo</button>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-6 col-sm-4 col-md-3 p-0">
-					<div class="card" style="margin: 10%;">
-						<img src="assets/img/img4.jpg" class="card-img-top">
-						<div class="card-body">
-							<div class="d-flex flex-row justify-content-between mb-0 px-3"></div>
-							<hr class="mt-2 mx-3">
-							<div class="d-flex flex-row justify-content-between px-3 pb-4">
-								<div class="d-flex flex-column"><span class="text-muted">Libro</span></div>
-								<div class="d-flex flex-column"></div>
-							</div>
-							<div class="mx-3 mt-3 mb-2">
-								<button type="button" class="btn btn-success btn-block">Solicitar Préstamo</button>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-6 col-sm-4 col-md-3 p-0">
-					<div class="card" style="margin: 10%;">
-						<img src="assets/img/img2.jpg" class="card-img-top">
-						<div class="card-body">
-							<div class="d-flex flex-row justify-content-between mb-0 px-3"></div>
-							<hr class="mt-2 mx-3">
-							<div class="d-flex flex-row justify-content-between px-3 pb-4">
-								<div class="d-flex flex-column"><span class="text-muted">Libro</span></div>
-								<div class="d-flex flex-column"></div>
-							</div>
-							<div class="mx-3 mt-3 mb-2">
-								<button type="button" class="btn btn-success btn-block">Solicitar Préstamo</button>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-6 col-sm-4 col-md-3 p-0">
-					<div class="card" style="margin: 10%;">
-						<img src="assets/img/img5.jpg" class="card-img-top">
-						<div class="card-body">
-							<div class="d-flex flex-row justify-content-between mb-0 px-3"></div>
-							<hr class="mt-2 mx-3">
-							<div class="d-flex flex-row justify-content-between px-3 pb-4">
-								<div class="d-flex flex-column"><span class="text-muted">Libro</span></div>
-								<div class="d-flex flex-column"></div>
-							</div>
-							<div class="mx-3 mt-3 mb-2">
-								<button type="button" class="btn btn-success btn-block">Solicitar Préstamo</button>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-6 col-sm-4 col-md-3 p-0">
-					<div class="card" style="margin: 10%;">
-						<img src="assets/img/img6.jpg" class="card-img-top">
-						<div class="card-body">
-							<div class="d-flex flex-row justify-content-between mb-0 px-3"></div>
-							<hr class="mt-2 mx-3">
-							<div class="d-flex flex-row justify-content-between px-3 pb-4">
-								<div class="d-flex flex-column"><span class="text-muted">Libro</span></div>
-								<div class="d-flex flex-column"></div>
-							</div>
-							<div class="mx-3 mt-3 mb-2">
-								<button type="button" class="btn btn-success btn-block" data-bs-toggle="modal" data-bs-target="#prestamoModal">Solicitar Préstamo</button>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-6 col-sm-4 col-md-3 p-0">
-					<div class="card" style="margin: 10%;">
-						<img src="assets/img/img7.jpg" class="card-img-top">
-						<div class="card-body">
-							<div class="d-flex flex-row justify-content-between mb-0 px-3"></div>
-							<hr class="mt-2 mx-3">
-							<div class="d-flex flex-row justify-content-between px-3 pb-4">
-								<div class="d-flex flex-column"><span class="text-muted">Libro</span></div>
-								<div class="d-flex flex-column"></div>
-							</div>
-							<div class="mx-3 mt-3 mb-2">
-								<button type="button" class="btn btn-success btn-block">Solicitar Préstamo</button>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-6 col-sm-4 col-md-3 p-0">
-					<div class="card" style="margin: 10%;">
-						<img src="assets/img/img8.jpeg" class="card-img-top">
-						<div class="card-body">
-							<div class="d-flex flex-row justify-content-between mb-0 px-3"></div>
-							<hr class="mt-2 mx-3">
-							<div class="d-flex flex-row justify-content-between px-3 pb-4">
-								<div class="d-flex flex-column"><span class="text-muted">Libro</span></div>
-								<div class="d-flex flex-column"></div>
-							</div>
-							<div class="mx-3 mt-3 mb-2">
-								<button type="button" class="btn btn-success btn-block">Solicitar Préstamo</button>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- Añade más tarjetas según sea necesario -->
 			</div>
 		</div>
 	</main><!-- End #main -->
+
+
+
+
+	<!--Prestamos-->
+
+	<div class="modal fade" id="prestamoModal" tabindex="-1" aria-labelledby="prestamoModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="prestamoModalLabel">Nuevo Préstamo</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<form id="librosForm" th:action="@{/prestamos/addNew}" method="post">
+						<label for="libro" class="form-label">Libro</label>
+						<input type="text" id="libroId" name="libroId" readonly>
+						<div class="mb-3">
+							<label for="fechaPrestamo" class="form-label">Fecha del Préstamo</label>
+							<input type="date" class="form-control" id="fechaPrestamo" name="fechaPrestamo" required>
+						</div>
+						<div class="mb-3">
+							<label for="usuario" class="form-label">Usuario</label>
+							<select class="form-control" id="usuario" name="usuario" required>
+								<option value="" selected disabled>Selecciona un usuario</option>
+								<th:block th:each="usuario : ${usuarios}">
+									<option th:value="${usuario.id}" th:text="${usuario.nombre}">Usuario</option>
+								</th:block>
+							</select>
+						</div>
+						<div class="mb-3">
+							<label for="diasSolicitados" class="form-label">Días Solicitados</label>
+							<input type="number" class="form-control" id="diasSolicitados" name="diasSolicitados"
+								required>
+						</div>
+						<div class="mb-3">
+							<label for="montoPorDia" class="form-label">Monto por Día</label>
+							<input type="number" class="form-control" id="montoPorDia" name="montoPorDia" required
+								readonly value=250>
+						</div>
+						<div class="mb-3">
+							<label for="empleado" class="form-label">Empleado</label>
+							<select class="form-control" id="empleado" name="empleadoId" required>
+								<option value="" selected disabled>Selecciona un usuario</option>
+								<th:block th:each="empleado : ${empleados}">
+									<option th:value="${empleado.id}" th:text="${empleado.nombre}">Empleado</option>
+								</th:block>
+							</select>
+						</div>
+
+						<button type="submit" id="savePrestamoButton" class="btn btn-primary">Guardar</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<!-- ======= Footer ======= -->
 	<footer id="footer" class="footer">
