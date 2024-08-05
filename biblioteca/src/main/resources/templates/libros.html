@@ -1,17 +1,22 @@
-<!DOCTYPE html>
+	<!DOCTYPE html>
 <html lang="en">
 
 <head>
 	<meta charset="utf-8">
 	<meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-	<title>Gestion de Autores</title>
+	<title>Gestion de Libros</title>
+
+	<!-- Incluye jQuery -->
 	<meta content="" name="description">
 	<meta content="" name="keywords">
 
 	<!-- Favicons -->
 	<link href="assets/img/favicon.png" rel="icon">
 	<link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 	<!-- Google Fonts -->
 	<link href="https://fonts.gstatic.com" rel="preconnect">
@@ -45,24 +50,20 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
 
 
-	<!-- =======================================================
-  * Template Name: NiceAdmin
-  * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
-  * Updated: Apr 20 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body>
+
+	<div th:if="${errorMessage}" class="alert alert-danger" th:text="${errorMessage}"></div>
+
 
 	<!-- ======= Header ======= -->
 	<header id="header" class="header fixed-top d-flex align-items-center">
 
 		<div class="d-flex align-items-center justify-content-between">
-			<a href="index.html" class="logo d-flex align-items-center">
+			<a href="/index" class="logo d-flex align-items-center">
 				<img src="assets/img/logo.png" alt="">
-				<span class="d-none d-lg-block">Biblioteca</span>
+				<span class="d-none d-lg-block">Biblioteca Mil Libros</span>
 			</a>
 			<i class="bi bi-list toggle-sidebar-btn"></i>
 		</div><!-- End Logo -->
@@ -90,7 +91,7 @@
 
 				<li class="nav-item dropdown pe-3">
 
-					<a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+					<a class="nav-link nav-profile d-flex align-items-center pe-0" href="/index" data-bs-toggle="dropdown">
 						<img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
 						<span class="d-none d-md-block dropdown-toggle ps-2">Kevin</span>
 					</a><!-- End Profile Iamge Icon -->
@@ -155,51 +156,59 @@
 		<ul class="sidebar-nav" id="sidebar-nav">
 
 			<li class="nav-item">
-				<a class="nav-link " href="index.html">
+				<a class="nav-link " href="/index">
 					<i class="bi bi-grid"></i>
-					<span>Biblioteca</span>
+					<span>Inicio</span>
 				</a>
-			</li><!-- End Dashboard Nav -->
 
 			<li class="nav-item">
 				<a class="nav-link collapsed" data-bs-target="#components-nav" href="/autores">
-					<i class="bi bi-menu-button-wide"></i><span>Autores</span><i class="bi bi-chevron-down ms-auto"></i>
+					<i class="bi bi-menu-button-wide"></i><span>Autores</span>
 				</a>
 
-			</li><!-- End Components Nav -->
 
 			<li class="nav-item">
 				<a class="nav-link collapsed" data-bs-target="#forms-nav" href="/libros">
-					<i class="bi bi-journal-text"></i><span>Libros</span><i class="bi bi-chevron-down ms-auto"></i>
+					<i class="bi bi-journal-text"></i><span>Libros</span>
+				</a>
+			<li class="nav-item">
+				<a class="nav-link collapsed" data-bs-target="#forms-nav" href="/prestamos">
+					<i class="bi bi-journal-text"></i><span>Prestamos</span>
+				</a>
+
+			</li><!-- End Forms Nav -->
+			<li class="nav-item">
+				<a class="nav-link collapsed" data-bs-target="#forms-nav" href="/devoluciones">
+					<i class="bi bi-journal-text"></i><span>Devoluciones</span>
 				</a>
 
 			</li><!-- End Forms Nav -->
 
+
 			<li class="nav-item">
 				<a class="nav-link collapsed" data-bs-target="#tables-nav" href="/editoras">
-					<i class="bi bi-layout-text-window-reverse"></i><span>Editoras</span><i
-						class="bi bi-chevron-down ms-auto"></i>
+					<i class="bi bi-layout-text-window-reverse"></i><span>Editoras</span>
 				</a>
 
 			</li><!-- End Tables Nav -->
 
 			<li class="nav-item">
 				<a class="nav-link collapsed" data-bs-target="#charts-nav" href="/idiomas">
-					<i class="bi bi-bar-chart"></i><span>Idiomas</span><i class="bi bi-chevron-down ms-auto"></i>
+					<i class="bi bi-bar-chart"></i><span>Idiomas</span>
 				</a>
 
 			</li><!-- End Charts Nav -->
 
 			<li class="nav-item">
 				<a class="nav-link collapsed" data-bs-target="#icons-nav" href="/ciencias">
-					<i class="bi bi-gem"></i><span>Ciencias</span><i class="bi bi-chevron-down ms-auto"></i>
+					<i class="bi bi-gem"></i><span>Ciencias</span>
 				</a>
 
 			</li><!-- End Icons Nav -->
 
 			<li class="nav-item">
 				<a class="nav-link collapsed" data-bs-target="#icons-nav" href="/tipoBibliografia">
-					<i class="bi bi-gem"></i><span>Tipo Bibliografia</span><i class="bi bi-chevron-down ms-auto"></i>
+					<i class="bi bi-gem"></i><span>Tipo Bibliografia</span>
 				</a>
 
 			</li><!-- End Icons Nav -->
@@ -209,7 +218,7 @@
 			<li class="nav-item">
 				<a class="nav-link collapsed" href="/usuarios">
 					<i class="bi bi-person"></i>
-					<span>Estudiantes</span>
+					<span>Usuarios</span>
 				</a>
 			</li><!-- End Profile Page Nav -->
 
@@ -221,33 +230,7 @@
 			</li><!-- End F.A.Q Page Nav -->
 
 
-			<li class="nav-item">
-				<a class="nav-link collapsed" href="pages-register.html">
-					<i class="bi bi-card-list"></i>
-					<span>Registor</span>
-				</a>
-			</li><!-- End Register Page Nav -->
 
-			<li class="nav-item">
-				<a class="nav-link collapsed" href="/userlogin">
-					<i class="bi bi-box-arrow-in-right"></i>
-					<span>Login</span>
-				</a>
-			</li><!-- End Login Page Nav -->
-
-			<li class="nav-item">
-				<a class="nav-link collapsed" href="pages-error-404.html">
-					<i class="bi bi-dash-circle"></i>
-					<span>Error 404</span>
-				</a>
-			</li><!-- End Error 404 Page Nav -->
-
-			<li class="nav-item">
-				<a class="nav-link collapsed" href="pages-blank.html">
-					<i class="bi bi-file-earmark"></i>
-					<span>Blank</span>
-				</a>
-			</li><!-- End Blank Page Nav -->
 
 		</ul>
 
@@ -255,82 +238,328 @@
 
 	<main id="main" class="main">
 
-		<div class="pagetitle">
-			<h1>Autores</h1>
-			<nav>
-				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
-				</ol>
-			</nav>
-		</div><!-- End Page Title -->
+		<div class="card" style="padding: 1.5em;">
 
-		<table class="table table-hover datatable">
-			<thead>
-				<tr>
-					<th>Descripcion</th>
-					<th>Autor</th>
-					<th>Editora</th>
-					<th>Año de Publicación</th>
-					<th>ISBN</th>
-					<th>Edicion</th>
-					<th>Idioma</th>
-					<th>Signatura Tipografica</th>
-					<th>Ciencia-Genero</th>
-					<th>Activo</th>
+			<div>
+				<div class="pagetitle">
+					<h1>Libros</h1>
 
+					<nav>
+						<ol class="breadcrumb">
+							<li class="breadcrumb-item"><a href="index.html">Volver al Inicio</a></li>
+							<button style="margin-left: 70em; display: inline-block; position: absolute; top: 20px;"
+								type="button" class="btn btn-info" data-bs-toggle="modal"
+								data-bs-target="#crearLibrosModal">
+								Agregar Libro
+							</button>
 
-				</tr>
-			</thead>
-			<tbody>
-				<tr th:each="libro:${libros}">
-					<td th:text="${libro.descripcion}">Descripcion</td>
-					<td th:text="${libro.autor.nombre}">Autor</td>
-					<td th:text="${libro.editora.descripcion}">Editora</td>
-					<td th:text="${libro.anioPublicacion}">Año de Publicación</td>
-					<td th:text="${libro.ISBN}">ISBN</td>
-					<td th:text="${libro.edicion}">Edición</td>
-					<td th:text="${libro.idioma.descripcion}">Idioma</td>
-					<td th:text="${libro.signaturaTipografica}">Signatura Tipográfica</td>
-					<td th:text="${libro.ciencia.descripcion}">Ciencia-Genero</td>
-					<td th:text="${libro.activo ? 'Sí' : 'No'}">Activo</td>
-				</tr>
-			</tbody>
-		</table>
+						</ol>
+
+					</nav>
+				</div><!-- End Page Title -->
+				<table class="table table-hover datatable">
+					<thead>
+						<tr>
+							<th>Descripcion</th>
+							<th>Autor</th>
+							<th>Editora</th>
+							<th>Año de Publicación</th>
+							<th>ISBN</th>
+							<th>Edicion</th>
+							<th>Cantidad</th>
+							<th>Idioma</th>
+							<th>Signatura Tipografica</th>
+							<th>Ciencia-Genero</th>
+							<th>Activo</th>
+							<th>Acciones</th>
 
 
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="libro:${libros}">
+							<td th:text="${libro.descripcion}">Descripcion</td>
+							<td th:text="${libro.autor.nombre}">Autor</td>
+							<td th:text="${libro.editora.descripcion}">Editora</td>
+							<td th:text="${libro.anioPublicacion}">Año de Publicación</td>
+							<td th:text="${libro.ISBN}">ISBN</td>
+							<td th:text="${libro.edicion}">Edición</td>
+							<td th:text="${libro.cantidad}">Cantidad</td>
+							<td th:text="${libro.idioma.descripcion}">Idioma</td>
+							<td th:text="${libro.signaturaTipografica}">Signatura Tipográfica</td>
+							<td th:text="${libro.ciencia.descripcion}">Ciencia-Genero</td>
+							<td th:text="${libro.activo ? 'Sí' : 'No'}">Activo</td>
+							<td>
+
+								<form method="post" class="d-inline-flex gap-2">
+								    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#prestamoModal"
+									 th:data-libro-id="${libro.id}">
+								        <i class="bi bi-box-arrow-in-right" data-bs-toggle="tooltip" title="Solicitar Préstamo"></i>
+								    </button>
+								    <button  type="button" class="btn btn-info editButton" data-bs-toggle="modal" data-bs-target="#editLibrosModal">
+								        <i class="bi bi-pencil-square" data-bs-toggle="tooltip" title="Editar"></i>
+								    </button>
+								    <button data-bs-toggle="tooltip" title="Borrar" type="submit" class="btn btn-danger">
+								        <i class="bi bi-trash"></i>
+								    </button>
+								</form>
+
+
+							</td>
+
+						</tr>
+
+					</tbody>
+				</table>
+			</div>
+		</div>
 
 
 	</main><!-- End #main -->
 
+	<!-- Modal para Editar Autores -->
+	<div class="modal fade" id="editLibrosModal" tabindex="-1" aria-labelledby="editLibrosLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="editLibrosLabel">Editar Libro</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<form id="autoresForm" th:action="@{/libros/update}" method="post" th:object="${libro}">
+						<input type="hidden" id="autorId" name="id">
+						<div class="form-group">
+							<label for="nombre">Nombre:</label>
+							<input type="text" class="form-control" id="descripcion" name="descripcion"
+								th:value="${libro?.descripcion}">
+						</div>
+						<div class="form-group">
+							<label for="paisOrigen">ISBN:</label>
+							<input type="text" class="form-control" id="ISBN" name="ISBN">
+						</div>
+						<div class="form-group">
+							<label for="idioma">Autor:</label>
+							<select class="form-control" id="autor" name="autor.id">
+								<option th:each="autor : ${autores}" th:value="${autor.id}" th:text="${autor.nombre}">
+								</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="idioma">Idioma:</label>
+							<select class="form-control" id="idioma" name="idioma.id">
+								<option th:each="idioma : ${idiomas}" th:value="${idioma.id}"
+									th:text="${idioma.descripcion}"></option>
+							</select>
+						</div>
+
+						<div class="form-group">
+							<label for="idioma">Editoria:</label>
+							<select class="form-control" id="editora" name="editora.id">
+								<option th:each="editora : ${editoras}" th:value="${editora.id}"
+									th:text="${editora.descripcion}"></option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="idioma">Ciencia/Genero:</label>
+							<select class="form-control" id="ciencia" name="ciencia.id">
+								<option th:each="ciencia : ${ciencias}" th:value="${ciencia.id}"
+									th:text="${ciencia.descripcion}"></option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="idioma">Edición:</label>
+							<select class="form-control" id="edicion" name="edicion">
+								<option value="Tapa Blanda">Tapa Blanda</option>
+								<option value="Tapa Dura">Tapa Dura</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="paisOrigen">Año de Publicación</label>
+							<input type="number" class="form-control" id="anioPublicacion" name="anioPublicacion">
+						</div>
+						<div class="form-group">
+							<label for="paisOrigen">Cantidad</label>
+							<input type="number" class="form-control" id="cantidad" name="cantidad">
+						</div>
+						<div class="form-group">
+							<label for="paisOrigen">Signatura Tipográfica</label>
+							<input type="text" class="form-control" id="signaturaTipografica"
+								name="signaturaTipografica">
+						</div>
+						<br>
+						<div class="form-group">
+							<label for="activo">Activo:</label>
+							<input type="checkbox" class="form-check-input" id="activo" name="activo">
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+							<button type="submit" class="btn btn-primary">Guardar cambios</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<!-- Modal para Crear Autor -->
+	<div class="modal fade" id="crearLibrosModal" tabindex="-1" aria-labelledby="crearAutoresLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="crearAutoresLabel">Crear Libros</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<form th:action="@{/libros/addnew}" method="post" th:object="${autor}">
+						<div class="form-group">
+							<label for="nombre">Nombre:</label>
+							<input type="text" class="form-control" id="descripcion" name="descripcion"
+								th:value="${libro?.descripcion}">
+						</div>
+						<div class="form-group">
+							<label for="paisOrigen">ISBN:</label>
+							<input type="text" class="form-control" id="ISBN" name="ISBN">
+						</div>
+						<div class="form-group">
+							<label for="idioma">Autor:</label>
+							<select class="form-control" id="autor" name="autor.id">
+								<option th:each="autor : ${autores}" th:value="${autor.id}" th:text="${autor.nombre}">
+								</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="idioma">Idioma:</label>
+							<select class="form-control" id="idioma" name="idioma.id">
+								<option th:each="idioma : ${idiomas}" th:value="${idioma.id}"
+									th:text="${idioma.descripcion}"></option>
+							</select>
+						</div>
+
+						<div class="form-group">
+							<label for="idioma">Editoria:</label>
+							<select class="form-control" id="editora" name="editora.id">
+								<option th:each="editora : ${editoras}" th:value="${editora.id}"
+									th:text="${editora.descripcion}"></option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="idioma">Ciencia/Genero:</label>
+							<select class="form-control" id="ciencia" name="ciencia.id">
+								<option th:each="ciencia : ${ciencias}" th:value="${ciencia.id}"
+									th:text="${ciencia.descripcion}"></option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="idioma">Edición:</label>
+							<select class="form-control" id="edicion" name="edicion">
+								<option value="Tapa Blanda">Tapa Blanda</option>
+								<option value="Tapa Dura">Tapa Dura</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="paisOrigen">Año de Publicación</label>
+							<input type="number" class="form-control" id="anioPublicacion" name="anioPublicacion">
+						</div>
+						<div class="form-group">
+							<label for="paisOrigen">Cantidad</label>
+							<input type="number" class="form-control" id="cantidad" name="cantidad">
+						</div>
+						<div class="form-group">
+							<label for="paisOrigen">Signatura Tipográfica</label>
+							<input type="text" class="form-control" id="signaturaTipografica"
+								name="signaturaTipografica">
+						</div>
+						<br>
+						<div class="form-group">
+							<label for="activo">Activo:</label>
+							<input type="checkbox" class="form-check-input" id="activo" name="activo">
+						</div>
+						<button type="submit" class="btn btn-primary">Guardar</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
 	<!-- ======= Footer ======= -->
-	<footer id="footer" class="footer">
-		<div class="copyright">
-			&copy; Copyright <strong><span>NiceAdmin</span></strong>. All Rights Reserved
+
+
+
+
+
+
+	<!-- Modal para Crear Autor -->
+
+
+	<!--Prestamos-->
+
+	<div class="modal fade" id="prestamoModal" tabindex="-1" aria-labelledby="prestamoModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="prestamoModalLabel">Nuevo Préstamo</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<form id="librosForm" th:action="@{/prestamos/addNew}" method="post">
+						<label for="libro" class="form-label">Libro</label>
+						<input type="text" id="libroId" name="libroId" readonly>
+						<div class="mb-3">
+							<label for="fechaPrestamo" class="form-label">Fecha del Préstamo</label>
+							<input type="date" class="form-control" id="fechaPrestamo" name="fechaPrestamo" required>
+						</div>
+						<div class="mb-3">
+							<label for="usuario" class="form-label">Usuario</label>
+							<select class="form-control" id="usuario" name="usuario" required>
+								<option value="" selected disabled>Selecciona un usuario</option>
+								<th:block th:each="usuario : ${usuarios}">
+										<option th:value="${usuario.id}" th:text="${usuario.nombre}">Usuario</option>
+								</th:block>
+							</select>
+						</div>
+						<div class="mb-3">
+							<label for="diasSolicitados" class="form-label">Días Solicitados</label>
+							<input type="number" class="form-control" id="diasSolicitados" name="diasSolicitados"
+								required>
+						</div>
+						<div class="mb-3">
+							<label for="montoPorDia" class="form-label">Monto por Día</label>
+							<input type="number" class="form-control" id="montoPorDia" name="montoPorDia" required readonly value=250>
+						</div>
+						<div class="mb-3">
+							<label for="empleado" class="form-label">Empleado</label>
+							<select class="form-control" id="empleado" name="empleadoId" required>
+								<option value="" selected disabled>Selecciona un usuario</option>
+								<th:block th:each="empleado : ${empleados}">
+									<option th:value="${empleado.id}" th:text="${empleado.nombre}">Empleado</option>
+								</th:block>
+							</select>
+						</div>
+
+						<button type="submit" id="savePrestamoButton" class="btn btn-primary">Guardar</button>
+					</form>
+				</div>
+			</div>
 		</div>
-		<div class="credits">
-			<!-- All the links in the footer should remain intact. -->
-			<!-- You can delete the links only if you purchased the pro version. -->
-			<!-- Licensing information: https://bootstrapmade.com/license/ -->
-			<!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-			Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-		</div>
+	</div>
 	</footer><!-- End Footer -->
 
 	<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
 			class="bi bi-arrow-up-short"></i></a>
 
-	<!-- Vendor JS Files -->
-	<script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
-	<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-	<script src="assets/vendor/chart.js/chart.umd.js"></script>
-	<script src="assets/vendor/echarts/echarts.min.js"></script>
-	<script src="assets/vendor/quill/quill.js"></script>
-	<script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
-	<script src="assets/vendor/tinymce/tinymce.min.js"></script>
-	<script src="assets/vendor/php-email-form/validate.js"></script>
 
 	<!-- Template Main JS File -->
+	<script src="assets/js/main.js"></script>
+	<!-- Template Main JS File -->
+	<script src="assets/js/pages.js"></script>
+
 	<script>
+
 		$(document).ready(function () {
 			$('.datatable').DataTable({
 				dom: 'Bfrtip',
@@ -351,6 +580,70 @@
 				]
 			});
 		});
+
+
+
+		document.addEventListener('DOMContentLoaded', function () {
+			var prestamoModal = document.getElementById('prestamoModal');
+			if (prestamoModal) {
+				prestamoModal.addEventListener('show.bs.modal', function (event) {
+					var button = event.relatedTarget; // Button that triggered the modal
+					var libroId = button.getAttribute('data-libro-id'); // Extract the ID from data-id attribute
+
+					// Set the autorId in the hidden input field
+					document.getElementById('libroId').value = libroId;
+
+					// Optional: Fetch additional details if needed
+				});
+			}
+		});
+
+		document.addEventListener('DOMContentLoaded', function () {
+			// Manejar el clic en el botón de editar
+			document.querySelectorAll('.editButton').forEach(button => {
+				button.addEventListener('click', function () {
+					// Obtener el ID del autor
+					const libroId = this.getAttribute('data-id');
+
+					// Encontrar la fila correspondiente en la tabla
+					const row = this.closest('tr');
+					const descripcion = row.children[0].innerText;
+					const autor = row.children[1].innerText;
+					const editora = row.children[2].innerText === 'Sí'; // Convertir el texto en booleano
+					const anioPublicacion = row.children[3].innerText;
+					const ISBN = row.children[4].innerText;
+					const edicion = row.children[5].innerText;
+					const cantidad = row.children[6].innerText;
+					const idioma = row.children[7].innerText;
+					const signaturaTipografica = row.children[8].innerText;
+					const ciencia = row.children[8].innerText;
+					const activo = row.children[9].innerText;
+
+
+
+					// Rellenar el formulario del modal
+					document.getElementById('libroId').value = libroId;
+					document.getElementById('descripcion').value = descripcion;
+					document.getElementById('autor').value = autor.nombre;
+					document.getElementById('editora').value = editora.descripcion;
+					document.getElementById('anioPublicacion').value = anioPublicacion;
+					document.getElementById('ISBN').value = ISBN;
+					document.getElementById('edicion').value = edicion;
+					document.getElementById('cantidad').value = cantidad;
+					document.getElementById('idioma').value = idioma.descripcion;
+					document.getElementById('signaturaTipografica').value = signaturaTipografica;
+					document.getElementById('ciencia').value = ciencia.descripcion;
+					document.getElementById('activo').checked = activo;
+
+					// Aquí se puede añadir lógica para seleccionar el idioma correcto si es necesario
+					// Si estás utilizando IDs de idiomas, puedes configurar esto de manera adecuada.
+				});
+			});
+		});
+
+
+
+
 	</script>
 
 </body>

@@ -7,10 +7,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+
 import com.sg.biblioteca.models.Usuarios;
 import com.sg.biblioteca.services.UsuariosService;
 
 @Controller
+
 public class UsuariosController {
 
 	@Autowired
@@ -22,4 +24,6 @@ public class UsuariosController {
 		model.addAttribute("usuarios", usuariosList);
 		return "usuarios";
 	}
+		
+	
 }

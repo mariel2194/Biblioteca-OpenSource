@@ -35,17 +35,13 @@ public class Devoluciones {
 	
     
 	    @OneToOne
-	    @JoinColumn(name = "prestamoId")
-	    private Prestamos prestamo;
-	
+	    private Prestamos prestamo;	
 
 	    @ManyToOne
 	    private Usuarios usuario;
-
 	    
 	    @Column(name = "Fecha Devolucion Actual")
-	    private Date fechaDevolucionActual;
-	    
+	    private Date fechaDevolucionActual;	    
 	    
 	    @Column(name = "Atraso")
 	    private boolean atraso;
@@ -53,7 +49,15 @@ public class Devoluciones {
 	    @Column(name = "Total a Pagar")
 	    private double totalPagar;
 	    
-	    @PrePersist
+	    public Usuarios getUsuario() {
+			return usuario;
+		}
+
+		public void setUsuario(Usuarios usuario) {
+			this.usuario = usuario;
+		}
+
+		@PrePersist
 	    @PreUpdate
 	    public void prePersist() {
 	        if (fechaDevolucionActual.after(prestamo.getFechaDevolucionEstimada())) {
