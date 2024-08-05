@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sg.biblioteca.models.Libros;
+import com.sg.biblioteca.models.Usuarios;
 import com.sg.biblioteca.models.Empleados;
 import com.sg.biblioteca.models.Ciencias;
 import com.sg.biblioteca.models.Idiomas;
@@ -41,6 +42,10 @@ public class LibrosController {
 	private IdiomasService idiomasService;
 	@Autowired
 	private EditorasService editorasService;
+	@Autowired
+	private UsuariosService usuariosService;
+	@Autowired
+	private EmpleadosService empleadosService;
 	
 	@Autowired
 	private CienciasService cienciasService;
@@ -50,10 +55,14 @@ public class LibrosController {
 	@GetMapping("/libros")
 	public String getLibros(Model model) {
 		List<Libros> librosList = librosService.ListLibros();
+		List<Usuarios> usuariosList = usuariosService.ListUsuarios();
 		List<Autores> autoresList = autoresService.ListAutores();
 		List<Editoras> editorasList = editorasService.ListEditoras();
 		List<Idiomas> idiomasList = idiomasService.ListIdiomas();
         List<Ciencias> cienciasList = cienciasService.ListCiencias();
+		List<Empleados> empleadosList = empleadosService.ListEmpleados();
+		model.addAttribute("empleados", empleadosList);
+        model.addAttribute("usuarios", usuariosList);
         model.addAttribute("ciencias", cienciasList);
 		model.addAttribute("libros", librosList);
 		model.addAttribute("autores", autoresList);

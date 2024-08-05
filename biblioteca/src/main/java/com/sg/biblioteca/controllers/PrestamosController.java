@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.lang.*;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -55,15 +56,12 @@ public class PrestamosController {
 		return "prestamos";
 	}
 	
-	
-	
-
 	/*
 	 * @PostMapping("/prestamos") public void save(Model model) {
 	 * prestamosService.save(model); return "redirect:/prestamos"; }
 	 */
 
-	@PostMapping("prestamos")
+	@PostMapping("/prestamos/addNew")
 	public String crearPrestamo(
 	        @RequestParam("fechaPrestamo") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date fechaPrestamo,
 	        @RequestParam(value = "usuario", required = false) Integer usuarioId,
@@ -80,29 +78,53 @@ public class PrestamosController {
 	    logger.info("montoPorDia: {}", montoPorDia);
 	    logger.info("empleadoId: {}", empleadoId);
 
-	    // Verifica si algún campo es nulo y añade el mensaje de error adecuado
-	    if (usuarioId == null) {
-	        redirectAttributes.addFlashAttribute("error", "El campo Usuario es obligatorio.");
-	    }
-	    if (libroId == null) {
-	        redirectAttributes.addFlashAttribute("error", "El campo Libro es obligatorio.");
-	    }
-	    if (diasSolicitados == null) {
-	        redirectAttributes.addFlashAttribute("error", "El campo Días Solicitados es obligatorio.");
-	    }
-	    if (montoPorDia == null) {
-	        redirectAttributes.addFlashAttribute("error", "El campo Monto por Día es obligatorio.");
-	    }
-	    if (empleadoId == null) {
-	        redirectAttributes.addFlashAttribute("error", "El campo Empleado es obligatorio.");
-	    }
+	    try {
+            logger.info("fechaPrestamo: {}", fechaPrestamo);
+            logger.info("usuarioId: {}", usuarioId);
+            logger.info("libroId: {}", libroId);
+            logger.info("diasSolicitados: {}", diasSolicitados);
+            logger.info("montoPorDia: {}", montoPorDia);
+            logger.info("empleadoId: {}", empleadoId);
 
-	    // Si todos los campos son válidos, continúa con la creación del préstamo
-	    Prestamos prestamo = prestamosService.createPrestamo(fechaPrestamo, usuarioId, libroId, diasSolicitados,
-	            montoPorDia, empleadoId);
-	    redirectAttributes.addFlashAttribute("message", "Préstamo guardado con éxito");
+            // Verifica si algún campo es nulo y añade el mensaje de error adecuado
+            boolean hasErrors = false;
+            if (usuarioId == null) {
+                redirectAttributes.addFlashAttribute("error", "El campo Usuario es obligatorio.");
+                hasErrors = true;
+            }
+            if (libroId == null) {
+                redirectAttributes.addFlashAttribute("error", "El campo Libro es obligatorio.");
+                hasErrors = true;
+            }
+            if (diasSolicitados == null) {
+                redirectAttributes.addFlashAttribute("error", "El campo Días Solicitados es obligatorio.");
+                hasErrors = true;
+            }
+            if (montoPorDia == null) {
+                redirectAttributes.addFlashAttribute("error", "El campo Monto por Día es obligatorio.");
+                hasErrors = true;
+            }
+            if (empleadoId == null) {
+                redirectAttributes.addFlashAttribute("error", "El campo Empleado es obligatorio.");
+                hasErrors = true;
+            }
 
-	    return "redirect:/prestamos";
-	}
+            // Si hay errores, redirige de nuevo al formulario
+            if (hasErrors) {
+                return "redirect:/prestamos";
+            }
+
+            // Si todos los campos son válidos, continúa con la creación del préstamo
+            Prestamos prestamo = prestamosService.createPrestamo(fechaPrestamo, usuarioId, libroId, diasSolicitados, montoPorDia, empleadoId);
+            redirectAttributes.addFlashAttribute("message", "Préstamo guardado con éxito");
+
+        } catch (Exception e) {
+            logger.error("Error al crear el préstamo", e);
+            redirectAttributes.addFlashAttribute("error", "Ocurrió un error al guardar el préstamo. Por favor, inténtelo de nuevo.");
+            return "redirect:/prestamos";
+        }
+
+        return "redirect:/prestamos";
+    }
 
 }
