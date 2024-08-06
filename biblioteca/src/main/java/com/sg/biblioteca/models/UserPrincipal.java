@@ -52,5 +52,10 @@ public class UserPrincipal implements UserDetails {
 		// TODO Auto-generated method stub
 		return true;
 	}
+	
+	@Override
+	public boolean isCredentialsNonExpired() { // TODO Auto-generated
+		return true;
+	}
 
 }
