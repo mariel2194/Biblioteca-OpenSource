@@ -7,8 +7,7 @@ import com.sg.biblioteca.models.UserLogin;
 import com.sg.biblioteca.models.Usuarios;
 
 @Repository
-public interface UsuariosRepository extends JpaRepository<Usuarios, Integer> {
-	
-	
+public interface UserLoginRepository extends JpaRepository<UserLogin, Integer> {
 
+	UserLogin findByUsername(String username);
 }

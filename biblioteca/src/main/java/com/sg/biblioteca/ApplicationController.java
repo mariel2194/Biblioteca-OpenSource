@@ -19,7 +19,7 @@ import com.sg.biblioteca.services.UsuariosService;
 
 @Controller
 public class ApplicationController {
-	
+
 	@Autowired
 	private PrestamosService prestamosService;
 	@Autowired
@@ -39,21 +39,25 @@ public class ApplicationController {
 		}
 		model.addAttribute("devolucionesExistentes", devolucionesExistentes);
 		model.addAttribute("libros", librosList);
-		
+
 		// Lista de URLs de imágenes
-        List<String> imagenes = Arrays.asList(
-            "/assets/img/img1.jpg",
-            "/assets/img/img2.jpg",
-            "/assets/img/img3.jpg",
-            "/assets/img/img4.jpg"
-        );
-        model.addAttribute("imagenes", imagenes);
+		List<String> imagenes = Arrays.asList("/assets/img/img1.jpg", "/assets/img/img2.jpg", "/assets/img/img3.jpg",
+				"/assets/img/img4.jpg");
+		model.addAttribute("imagenes", imagenes);
 		model.addAttribute("usuarios", usuariosList);
 		model.addAttribute("prestamos", prestamosList);
 
 		return "index";
 	}
 
+	@GetMapping("/login")
+	public String login() {
+		return "login";
+	}
 
+	@GetMapping("/logout")
+	public String logout() {
+		return "login";
+	}
 
 }
