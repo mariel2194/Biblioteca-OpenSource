@@ -28,14 +28,8 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-  <!-- =======================================================
-  * Template Name: NiceAdmin
-  * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
-  * Updated: Apr 20 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body>
@@ -64,7 +58,7 @@
                     <p class="text-center small">Introduzca su usuario y contraseña</p>
                   </div>
 
-                  <form class="row g-3 needs-validation" th:action="@{/login}" method="post">
+                  <form id="loginForm" class="row g-3 needs-validation" th:action="@{/login}" method="post">
 
                     <div class="col-12">
                       <label for="yourUsername" class="form-label">Usuario</label>
@@ -123,6 +117,7 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/login.js"></script>
 
 </body>
 

@@ -33,6 +33,7 @@ public class ApplicationSecurityConfig {
             .formLogin(formLogin ->
                 formLogin
                     .loginPage("/login")
+                    .loginProcessingUrl("/login") 
                     .defaultSuccessUrl("/index", true)
                     .successHandler(new CustomAuthenticationSuccessHandler())
                     .permitAll()
@@ -51,7 +52,7 @@ public class ApplicationSecurityConfig {
 
     @Bean
     public PasswordEncoder passwordEncoder() {
-        return NoOpPasswordEncoder.getInstance();
+        return NoOpPasswordEncoder.getInstance(); 
     }
 
     @Bean
