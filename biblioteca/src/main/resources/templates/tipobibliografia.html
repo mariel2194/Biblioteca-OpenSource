@@ -141,7 +141,7 @@
 
 	</header><!-- End Header -->
 
-	!-- ======= Sidebar ======= -->
+	
 			<aside id="sidebar" class="sidebar">
 
 				<ul class="sidebar-nav" id="sidebar-nav">
@@ -251,7 +251,7 @@
 						<tr>
 							<th>Descripcion</th>
 							<th>Activo</th>
-							<th>Acciones</th>
+							<th></th>
 
 
 						</tr>
@@ -284,7 +284,7 @@
 
 	</main><!-- End #main -->
 
-	<!-- Modal para Editar Ciencias -->
+	<!-- Modal para Editar Bibliografia -->
 
 	<div class="modal fade" id="editBibliografiaModal" tabindex="-1" aria-labelledby="editBibliografiaLabel" aria-hidden="true">
 		<div class="modal-dialog">
@@ -325,7 +325,7 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="crearBibliografiaLabel">Crear Ciencia</h5>
+					<h5 class="modal-title" id="crearBibliografiaLabel">Crear Bibliografia</h5>
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
@@ -403,7 +403,7 @@
 					const tipoBibliografiaId = this.getAttribute('data-id');
 					const row = this.closest('tr');
 					const descripcion = row.children[0].innerText;
-					const activo = row.children[2].innerText === 'Sí'; // Convertir el texto en booleano
+					const activo = row.children[2].innerText === 'Sí'; 
 
 
 					// Rellenar el formulario del modal

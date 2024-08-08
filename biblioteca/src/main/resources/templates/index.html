@@ -476,6 +476,23 @@
 
 	<!-- Template Main JS File -->
 	<script src="assets/js/main.js"></script>
+	<script>
+
+		document.addEventListener('DOMContentLoaded', function () {
+			var prestamoModal = document.getElementById('prestamoModal');
+			if (prestamoModal) {
+				prestamoModal.addEventListener('show.bs.modal', function (event) {
+					var button = event.relatedTarget; // Button that triggered the modal
+					var libroId = button.getAttribute('data-libro-id'); // Extract the ID from data-id attribute
+
+					// Set the autorId in the hidden input field
+					document.getElementById('libroId').value = libroId;
+
+					// Optional: Fetch additional details if needed
+				});
+			}
+		});
+	</script>
 
 </body>
 
