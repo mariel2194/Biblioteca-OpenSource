@@ -149,197 +149,204 @@
 
 	</header><!-- End Header -->
 
-	<	!-- ======= Sidebar ======= -->
-			<aside id="sidebar" class="sidebar">
+	< !--=======Sidebar=======-->
+		<aside id="sidebar" class="sidebar">
 
-				<ul class="sidebar-nav" id="sidebar-nav">
+			<ul class="sidebar-nav" id="sidebar-nav">
 
-					<li class="nav-item">
-						<a class="nav-link " href="/index">
-							<i class="bi bi-grid"></i>
-							<span>Inicio</span>
-						</a>
+				<li class="nav-item">
+					<a class="nav-link " href="/index">
+						<i class="bi bi-grid"></i>
+						<span>Inicio</span>
+					</a>
 
-					<li class="nav-item">
-						<a class="nav-link collapsed" data-bs-target="#components-nav" href="/autores">
-							<i class="bi bi-menu-button-wide"></i><span>Autores</span>
-						</a>
-
-
-					<li class="nav-item">
-						<a class="nav-link collapsed" data-bs-target="#forms-nav" href="/libros">
-							<i class="bi bi-journal-text"></i><span>Libros</span>
-						</a>
-					<li class="nav-item">
-						<a class="nav-link collapsed" data-bs-target="#forms-nav" href="/prestamos">
-							<i class="bi bi-journal-text"></i><span>Prestamos</span>
-						</a>
-
-					</li><!-- End Forms Nav -->
-					<li class="nav-item">
-						<a class="nav-link collapsed" data-bs-target="#forms-nav" href="/devoluciones">
-							<i class="bi bi-journal-text"></i><span>Devoluciones</span>
-						</a>
-
-					</li><!-- End Forms Nav -->
+				<li class="nav-item">
+					<a class="nav-link collapsed" data-bs-target="#components-nav" href="/autores">
+						<i class="bi bi-menu-button-wide"></i><span>Autores</span>
+					</a>
 
 
-					<li class="nav-item">
-						<a class="nav-link collapsed" data-bs-target="#tables-nav" href="/editoras">
-							<i class="bi bi-layout-text-window-reverse"></i><span>Editoras</span>
-						</a>
+				<li class="nav-item">
+					<a class="nav-link collapsed" data-bs-target="#forms-nav" href="/libros">
+						<i class="bi bi-journal-text"></i><span>Libros</span>
+					</a>
+				<li class="nav-item">
+					<a class="nav-link collapsed" data-bs-target="#forms-nav" href="/prestamos">
+						<i class="bi bi-journal-text"></i><span>Prestamos</span>
+					</a>
 
-					</li><!-- End Tables Nav -->
+				</li><!-- End Forms Nav -->
+				<li class="nav-item">
+					<a class="nav-link collapsed" data-bs-target="#forms-nav" href="/devoluciones">
+						<i class="bi bi-journal-text"></i><span>Devoluciones</span>
+					</a>
 
-					<li class="nav-item">
-						<a class="nav-link collapsed" data-bs-target="#charts-nav" href="/idiomas">
-							<i class="bi bi-bar-chart"></i><span>Idiomas</span>
-						</a>
-
-					</li><!-- End Charts Nav -->
-
-					<li class="nav-item">
-						<a class="nav-link collapsed" data-bs-target="#icons-nav" href="/ciencias">
-							<i class="bi bi-gem"></i><span>Ciencias</span>
-						</a>
-
-					</li><!-- End Icons Nav -->
-
-					<li class="nav-item">
-						<a class="nav-link collapsed" data-bs-target="#icons-nav" href="/tipoBibliografia">
-							<i class="bi bi-gem"></i><span>Tipo Bibliografia</span>
-						</a>
-
-					</li><!-- End Icons Nav -->
-
-					<li class="nav-heading">Usuarios</li>
-
-					<li class="nav-item">
-						<a class="nav-link collapsed" href="/usuarios">
-							<i class="bi bi-person"></i>
-							<span>Usuarios</span>
-						</a>
-					</li><!-- End Profile Page Nav -->
-
-					<li class="nav-item">
-						<a class="nav-link collapsed" href="/empleados">
-							<i class="bi bi-question-circle"></i>
-							<span>Empleados</span>
-						</a>
-					</li><!-- End F.A.Q Page Nav -->
+				</li><!-- End Forms Nav -->
 
 
+				<li class="nav-item">
+					<a class="nav-link collapsed" data-bs-target="#tables-nav" href="/editoras">
+						<i class="bi bi-layout-text-window-reverse"></i><span>Editoras</span>
+					</a>
 
+				</li><!-- End Tables Nav -->
 
-				</ul>
+				<li class="nav-item">
+					<a class="nav-link collapsed" data-bs-target="#charts-nav" href="/idiomas">
+						<i class="bi bi-bar-chart"></i><span>Idiomas</span>
+					</a>
 
-			</aside><!-- End Sidebar-->
+				</li><!-- End Charts Nav -->
 
-	<main id="main" class="main">
+				<li class="nav-item">
+					<a class="nav-link collapsed" data-bs-target="#icons-nav" href="/ciencias">
+						<i class="bi bi-gem"></i><span>Ciencias</span>
+					</a>
 
-		<div class="pagetitle">
-			<h1>Autores</h1>
-			<nav>
-				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
-				</ol>
-			</nav>
-		</div><!-- End Page Title -->
+				</li><!-- End Icons Nav -->
 
-		<table class="table table-hover datatable">
-			<thead>
-				<tr>
-					<th>Nombre</th>
-					<th>Cedula</th>
-					<th>Carnet</th>
-					<th>Comision</th>
-					<th>Fecha de Ingreso</th>
-					<th>Tanda</th>
-					<th>Activo</th>
+				<li class="nav-item">
+					<a class="nav-link collapsed" data-bs-target="#icons-nav" href="/tipoBibliografia">
+						<i class="bi bi-gem"></i><span>Tipo Bibliografia</span>
+					</a>
 
+				</li><!-- End Icons Nav -->
 
+				<li class="nav-heading">Usuarios</li>
 
-				</tr>
-			</thead>
-			<tbody>
-				<tr th:each="empleado:${empleados}">
-					<td th:text="${empleado.nombre}">Nombre</td>
-					<td th:text="${empleado.cedula}">Cedula</td>
-					<td th:text="${empleado.noCarnet}">Carnet</td>
-					<td th:text="${empleado.comision}">Comision</td>
-					<td th:text="${empleado.fechaIngreso}">Fecha de Ingreso</td>
-					<td th:text="${empleado.tanda}">Tanda</td>
-					<td th:text="${empleado.activo ? 'Sí' : 'No'}">Activo</td>
-					<td>
-						<button type="button" class="btn btn-info editButton"
-							data-bs-toggle="modal" data-bs-target="#editAutoresModal">
-							<i class="bi bi-pencil-square"></i>
-						</button>
-						<form method="post" style="display:inline;">
-							<button type="submit" class="btn btn-danger">
-								<i class="bi bi-trash"></i>
-							</button>
-						</form>
-					</td>
-				</tr>
-			</tbody>
-		</table>
+				<li class="nav-item">
+					<a class="nav-link collapsed" href="/usuarios">
+						<i class="bi bi-person"></i>
+						<span>Usuarios</span>
+					</a>
+				</li><!-- End Profile Page Nav -->
+
+				<li class="nav-item">
+					<a class="nav-link collapsed" href="/empleados">
+						<i class="bi bi-question-circle"></i>
+						<span>Empleados</span>
+					</a>
+				</li><!-- End F.A.Q Page Nav -->
 
 
 
 
-	</main><!-- End #main -->
+			</ul>
 
-	<!-- ======= Footer ======= -->
-	<footer id="footer" class="footer">
-		<div class="copyright">
-			&copy; Copyright <strong><span>NiceAdmin</span></strong>. All Rights Reserved
-		</div>
-		<div class="credits">
-			<!-- All the links in the footer should remain intact. -->
-			<!-- You can delete the links only if you purchased the pro version. -->
-			<!-- Licensing information: https://bootstrapmade.com/license/ -->
-			<!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-			Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-		</div>
-	</footer><!-- End Footer -->
+		</aside><!-- End Sidebar-->
 
-	<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-			class="bi bi-arrow-up-short"></i></a>
+		<main id="main" class="main">
 
-	<!-- Vendor JS Files -->
-	<script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
-	<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-	<script src="assets/vendor/chart.js/chart.umd.js"></script>
-	<script src="assets/vendor/echarts/echarts.min.js"></script>
-	<script src="assets/vendor/quill/quill.js"></script>
-	<script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
-	<script src="assets/vendor/tinymce/tinymce.min.js"></script>
-	<script src="assets/vendor/php-email-form/validate.js"></script>
+			<div class="card" style="padding: 1.5em;">
 
-	<!-- Template Main JS File -->
-	<script>
-		$(document).ready(function () {
-			$('.datatable').DataTable({
-				dom: 'Bfrtip',
-				buttons: [
-					{
-						extend: 'excelHtml5',
-						text: 'Exportar a Excel',
-						title: 'Reporte de Autores'
-					},
-					{
-						extend: 'pdfHtml5',
-						text: 'Exportar a PDF',
-						title: 'Reporte de Autores',
-						orientation: 'landscape',
-						pageSize: 'A4'
-					},
-					'print'
-				]
+				<div>
+					<div class="pagetitle">
+						<h1>Empleados</h1>
+
+						<nav>
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a href="index.html">Volver al Inicio</a></li>
+								<button style="margin-left: 70em; display: inline-block; position: absolute; top: 20px;"
+									type="button" class="btn btn-info" data-bs-toggle="modal"
+									data-bs-target="#crearEmpleadosModal">
+									Agregar Empleados
+								</button>
+
+							</ol>
+
+						</nav>
+					</div><!-- End Page Title -->
+
+					<table class="table table-hover datatable">
+						<thead>
+							<tr>
+								<th>Nombre</th>
+								<th>Cedula</th>
+								<th>Carnet</th>
+								<th>Comision</th>
+								<th>Fecha de Ingreso</th>
+								<th>Tanda</th>
+								<th>Activo</th>
+								<th></th>
+
+
+
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="empleado:${empleados}">
+								<td th:text="${empleado.nombre}">Nombre</td>
+								<td th:text="${empleado.cedula}">Cedula</td>
+								<td th:text="${empleado.noCarnet}">Carnet</td>
+								<td th:text="${empleado.comision}">Comision</td>
+								<td th:text="${empleado.fechaIngreso}">Fecha de Ingreso</td>
+								<td th:text="${empleado.tanda}">Tanda</td>
+								<td th:text="${empleado.activo ? 'Sí' : 'No'}">Activo</td>
+								<td>
+									<form method="post" class="d-inline-flex gap-2">
+
+										<button type="button" class="btn btn-info editButton" data-bs-toggle="modal"
+											data-bs-target="#editAutoresModal">
+											<i class="bi bi-pencil-square" data-bs-toggle="tooltip"
+												title="Editar Empleado"></i>
+										</button>
+										<button type="submit" class="btn btn-danger">
+											<i class="bi bi-trash"></i>
+										</button>
+									</form>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+
+
+
+		</main><!-- End #main -->
+
+		<!-- ======= Footer ======= -->
+		<footer id="footer" class="footer">
+
+		</footer><!-- End Footer -->
+
+		<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+				class="bi bi-arrow-up-short"></i></a>
+
+		<!-- Vendor JS Files -->
+		<script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
+		<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+		<script src="assets/vendor/chart.js/chart.umd.js"></script>
+		<script src="assets/vendor/echarts/echarts.min.js"></script>
+		<script src="assets/vendor/quill/quill.js"></script>
+		<script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
+		<script src="assets/vendor/tinymce/tinymce.min.js"></script>
+		<script src="assets/vendor/php-email-form/validate.js"></script>
+
+		<!-- Template Main JS File -->
+		<script>
+			$(document).ready(function () {
+				$('.datatable').DataTable({
+					dom: 'Bfrtip',
+					buttons: [
+						{
+							extend: 'excelHtml5',
+							text: 'Exportar a Excel',
+							title: 'Reporte de Empleados'
+						},
+						{
+							extend: 'pdfHtml5',
+							text: 'Exportar a PDF',
+							title: 'Reporte de Empleados',
+							orientation: 'landscape',
+							pageSize: 'A4'
+						},
+						'print'
+					]
+				});
 			});
-		});
-	</script>
+		</script>
 
 </body>
 
